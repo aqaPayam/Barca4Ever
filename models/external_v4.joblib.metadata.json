@@ -1,0 +1,52 @@
+{
+  "kind": "contact_fusion",
+  "role_mode": "none",
+  "model_sha256": "342cf55066920bc9913e1d3eaa159b9cafa3d374d1f85417ad07cd3ac4adb09d",
+  "original_neural_sha256": "cf8c70e4f84654996bb1f466a1c8578ee521d4ec0014f1e3df5ee535e9ee3bc6",
+  "neural_weight": 0.5,
+  "boundary_kind": "state",
+  "gates": {
+    "validation_spell": true,
+    "validation_short": true,
+    "cross_False_spell": true,
+    "cross_False_short": true,
+    "regression_False_spell": true,
+    "regression_False_short": true,
+    "cross_True_spell": true,
+    "cross_True_short": true,
+    "regression_True_spell": true,
+    "regression_True_short": true
+  },
+  "training_matches": [
+    "J03WOH",
+    "J03WOY",
+    "J03WPY",
+    "J03WQQ"
+  ],
+  "licence": "CC BY 4.0",
+  "attribution": "IDSSE, DFL/Sportec; Bassek et al. 2025; DOI 10.6084/m9.figshare.28196177",
+  "inference_device": "cpu",
+  "torch_version": "2.9.1",
+  "architecture": {
+    "width": 64,
+    "dropout": 0.1,
+    "channels": 17,
+    "instant_skip": true,
+    "geometry_attention": true
+  },
+  "evidence": "External development validation, cross-validation and reused-test regression, not fresh blind testing",
+  "code_sha256": {
+    "infer_contact.py": "ffe3752805c9c6d188c5199e6cbb3d72dd90a52a565bd1e38a1683574428744c",
+    "contact_input.py": "fdf12900da83518eac667b3b9e1246599bbd88fc73f614ade6d9741825005f54",
+    "paper2023_data.py": "863a3047f689300e2a1dc328249f705c879c4d76633992174d9cf8c299260f4a",
+    "paper2023_model.py": "a04f0cc2a49662135c76f8802a02b77de74d2c96eb825e18a2e58ae777f35f6d",
+    "torch_runtime.py": "2f219b6e4f26c79ed535419f5542b8cb24dcbe568b37ef3687d3055836935449",
+    "possession_v2.py": "c891f81afa99543b7e96b3316bcbd28d5bcd26051d8db38b70087176aff62af3",
+    "learned_possession.py": "f6a3dd179bf2dc57b8b6fd6b270abec6ef92ae5c2ad9370205effb4441c020bc",
+    "infer_learned.py": "f905a81d1a18d1fc0acd30cdd01637377282453e71ea13e3a56badbb658037b2",
+    "temporal_state.py": "5a3bb30b0a99767e1b4a6cf2f992cbd8bb08799b02557f79d8443848f662bd4c",
+    "temporal_decoders.py": "1b1ca54ad23e9cc10ed04e354c98d65ee20ad03a1e3af29e4d98bfaf953a5db1",
+    "barca4ever.py": "a113a1650c7175f7dec449d0d5feb0984ac58a5a27b4ce8bceec4644194f4e9c",
+    "games.py": "473bf0502a28d93ff49fe5c20be4e546e30a9d8fa4112ab50b1ecdaf44233064"
+  }
+}

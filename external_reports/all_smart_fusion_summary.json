@@ -1,0 +1,369 @@
+{
+  "status": "Reused external development comparisons; WR9 fits gates, whole-match CV screens, only one candidate can confirm on reused regression",
+  "baseline_model_sha256": "29f5115dd3ca8e865edf9dc735a49d6d8de03d8ddd910ee71724da9e9d4729aa",
+  "baseline": {
+    "False": {
+      "spell_f1": 0.7104659867305403,
+      "macro_f1": 0.937329066854845,
+      "short_hits": 191,
+      "short_count": 463,
+      "short_recall": 0.41252699784017277
+    },
+    "True": {
+      "spell_f1": 0.5328512213188503,
+      "macro_f1": 0.8759862578337112,
+      "short_hits": 79,
+      "short_count": 463,
+      "short_recall": 0.17062634989200864
+    }
+  },
+  "candidates": [
+    {
+      "family": "Linear",
+      "candidate": "joint",
+      "scores": {
+        "False": {
+          "spell_f1": 0.706058609952614,
+          "macro_f1": 0.9363287334869576,
+          "short_hits": 197,
+          "short_count": 463,
+          "short_recall": 0.42548596112311016
+        },
+        "True": {
+          "spell_f1": 0.5247143935108609,
+          "macro_f1": 0.8737217878556005,
+          "short_hits": 87,
+          "short_count": 463,
+          "short_recall": 0.1879049676025918
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Linear",
+      "candidate": "factorized",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7051653246677001,
+          "macro_f1": 0.9361221312588309,
+          "short_hits": 198,
+          "short_count": 463,
+          "short_recall": 0.42764578833693306
+        },
+        "True": {
+          "spell_f1": 0.5276808490227695,
+          "macro_f1": 0.8762096125410724,
+          "short_hits": 89,
+          "short_count": 463,
+          "short_recall": 0.19222462203023757
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Conservative",
+      "candidate": "joint:shrink25",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7083214448508093,
+          "macro_f1": 0.9369784309671829,
+          "short_hits": 192,
+          "short_count": 463,
+          "short_recall": 0.4146868250539957
+        },
+        "True": {
+          "spell_f1": 0.5269565921572315,
+          "macro_f1": 0.8752321380614674,
+          "short_hits": 79,
+          "short_count": 463,
+          "short_recall": 0.17062634989200864
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Conservative",
+      "candidate": "joint:shrink50",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7084287182860027,
+          "macro_f1": 0.9369661174782116,
+          "short_hits": 194,
+          "short_count": 463,
+          "short_recall": 0.4190064794816415
+        },
+        "True": {
+          "spell_f1": 0.5284921646065326,
+          "macro_f1": 0.8751624415151009,
+          "short_hits": 82,
+          "short_count": 463,
+          "short_recall": 0.1771058315334773
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Conservative",
+      "candidate": "joint:disagree",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7095023173962312,
+          "macro_f1": 0.9367660553070936,
+          "short_hits": 195,
+          "short_count": 463,
+          "short_recall": 0.42116630669546434
+        },
+        "True": {
+          "spell_f1": 0.5273117940758247,
+          "macro_f1": 0.8742715078677687,
+          "short_hits": 86,
+          "short_count": 463,
+          "short_recall": 0.1857451403887689
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Conservative",
+      "candidate": "joint:boundary",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7070291572827958,
+          "macro_f1": 0.9366091961620114,
+          "short_hits": 193,
+          "short_count": 463,
+          "short_recall": 0.4168466522678186
+        },
+        "True": {
+          "spell_f1": 0.5247670301602227,
+          "macro_f1": 0.8751599280279143,
+          "short_hits": 81,
+          "short_count": 463,
+          "short_recall": 0.17494600431965443
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Conservative",
+      "candidate": "factorized:shrink25",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7093786654298835,
+          "macro_f1": 0.9374130422722318,
+          "short_hits": 192,
+          "short_count": 463,
+          "short_recall": 0.4146868250539957
+        },
+        "True": {
+          "spell_f1": 0.5274570364349811,
+          "macro_f1": 0.8751697942030764,
+          "short_hits": 79,
+          "short_count": 463,
+          "short_recall": 0.17062634989200864
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Conservative",
+      "candidate": "factorized:shrink50",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7095271729021762,
+          "macro_f1": 0.9371078434625202,
+          "short_hits": 195,
+          "short_count": 463,
+          "short_recall": 0.42116630669546434
+        },
+        "True": {
+          "spell_f1": 0.5294018734919326,
+          "macro_f1": 0.875744179063995,
+          "short_hits": 83,
+          "short_count": 463,
+          "short_recall": 0.17926565874730022
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Conservative",
+      "candidate": "factorized:disagree",
+      "scores": {
+        "False": {
+          "spell_f1": 0.705892771378215,
+          "macro_f1": 0.9362216901892513,
+          "short_hits": 196,
+          "short_count": 463,
+          "short_recall": 0.42332613390928725
+        },
+        "True": {
+          "spell_f1": 0.5301029054227695,
+          "macro_f1": 0.8757786861188523,
+          "short_hits": 88,
+          "short_count": 463,
+          "short_recall": 0.1900647948164147
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Conservative",
+      "candidate": "factorized:boundary",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7067858495834322,
+          "macro_f1": 0.9365722290169315,
+          "short_hits": 196,
+          "short_count": 463,
+          "short_recall": 0.42332613390928725
+        },
+        "True": {
+          "spell_f1": 0.5281149230617466,
+          "macro_f1": 0.8753513404782327,
+          "short_hits": 83,
+          "short_count": 463,
+          "short_recall": 0.17926565874730022
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Nonlinear",
+      "candidate": "regret25",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7086578975377306,
+          "macro_f1": 0.937139909060538,
+          "short_hits": 192,
+          "short_count": 463,
+          "short_recall": 0.4146868250539957
+        },
+        "True": {
+          "spell_f1": 0.5286025155691768,
+          "macro_f1": 0.8760078236022536,
+          "short_hits": 78,
+          "short_count": 463,
+          "short_recall": 0.16846652267818574
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": false
+      }
+    },
+    {
+      "family": "Nonlinear",
+      "candidate": "regret40",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7074725289031181,
+          "macro_f1": 0.9369949882747042,
+          "short_hits": 192,
+          "short_count": 463,
+          "short_recall": 0.4146868250539957
+        },
+        "True": {
+          "spell_f1": 0.5297978614532222,
+          "macro_f1": 0.8763201226869484,
+          "short_hits": 79,
+          "short_count": 463,
+          "short_recall": 0.17062634989200864
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": true,
+        "True_spell": false,
+        "True_short": true
+      }
+    },
+    {
+      "family": "Spell-score fitted",
+      "candidate": "score_gate",
+      "scores": {
+        "False": {
+          "spell_f1": 0.7088473594796143,
+          "macro_f1": 0.9366482267098419,
+          "short_hits": 184,
+          "short_count": 463,
+          "short_recall": 0.39740820734341253
+        },
+        "True": {
+          "spell_f1": 0.5347739110843335,
+          "macro_f1": 0.8770881877898766,
+          "short_hits": 79,
+          "short_count": 463,
+          "short_recall": 0.17062634989200864
+        }
+      },
+      "checks": {
+        "False_spell": false,
+        "False_short": false,
+        "True_spell": true,
+        "True_short": true
+      }
+    }
+  ],
+  "selected_on_cv": [],
+  "external_acceptance_passed": false,
+  "regression": null,
+  "protocol_sha256": {
+    "SMART_FUSION_PROTOCOL.md": "13eac89cfd34aa58560dcc132c1e4051acbcf424726775472c3695de8e6803fa",
+    "SMART_FUSION_CONSERVATIVE_PROTOCOL.md": "77a8387f3050fd98ffeba91cf0a7b1cf4e3d4681e0d9909c869ef9d60df23450",
+    "NONLINEAR_FUSION_PROTOCOL.md": "5c69396bff45af7ff05f7c9ee8e9fbcd106d8c14c4a4207c277817b25bd8e2d4",
+    "SCORE_FUSION_PROTOCOL.md": "ce7d3238d9daf77c52cea6de16960f50551ea745aa80f532b748ad7b00ed1bde"
+  }
+}

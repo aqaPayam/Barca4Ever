@@ -1,0 +1,40 @@
+{
+  "model_sha256": "176b875b73b46c2e115fd8c05d668e66da6101f8893be19074eda23b20ae3552",
+  "kind": "adaptive_boundary",
+  "feature_version": 2,
+  "penalty": 16,
+  "boundary_scale": 4,
+  "gates": {
+    "validation_spell_f1": true,
+    "boundary_crosscheck_False_spell_f1": true,
+    "boundary_crosscheck_False_short_recall": true,
+    "boundary_crosscheck_True_spell_f1": true,
+    "boundary_crosscheck_True_short_recall": true,
+    "boundary_regression_False_spell_f1": true,
+    "boundary_regression_False_short_recall": true,
+    "boundary_regression_True_spell_f1": true,
+    "boundary_regression_True_short_recall": true
+  },
+  "training_matches": [
+    "J03WOH",
+    "J03WOY",
+    "J03WPY",
+    "J03WQQ"
+  ],
+  "validation_match": "J03WR9",
+  "licence": "CC BY 4.0",
+  "attribution": "DFL/Sportec Solutions; IDSSE, Bassek et al. (2025); DOI 10.6084/m9.figshare.28196177",
+  "evidence": "Development validation, whole-match cross-validation, reused-test regression; not fresh blind tests. Noisy CV overall gain is negligible.",
+  "acceptance": "Post-development acceptance checks, not a preregistered blind-test protocol",
+  "code_sha256": {
+    "possession_v2.py": "c891f81afa99543b7e96b3316bcbd28d5bcd26051d8db38b70087176aff62af3",
+    "learned_possession.py": "f6a3dd179bf2dc57b8b6fd6b270abec6ef92ae5c2ad9370205effb4441c020bc",
+    "infer_learned.py": "f905a81d1a18d1fc0acd30cdd01637377282453e71ea13e3a56badbb658037b2",
+    "infer_boundary.py": "0a69c2ba85e6e27531427236a226bbbb774d10c604cd1cea77f83a8d416b8e78",
+    "temporal_decoders.py": "1b1ca54ad23e9cc10ed04e354c98d65ee20ad03a1e3af29e4d98bfaf953a5db1",
+    "research_data.py": "91f6c497e711f3905551cfa6fdea98e3ffe58807545b0cfc2bbbc61b57905d63",
+    "research_trees.py": "4c52d1042ae6b4609240691d613fe0e0e0efa0525e6daa5d23480b4ab9bff509",
+    "develop_v2.py": "ad42fc227db267c8dc7283ba3360cf8920f2e7a28d458a7934ac14ea4e3fedfa",
+    "external_idsse.py": "3a4228b6395b36f97f3c47e7f7702f82933673ceb415c544c5d7763b681fa14f"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "status": "Final artifact byte-identical to qualified and CPU-checked candidate",
+  "model_sha256": "9b1169c5bf920a1bff811ba23a15b907c983c7364626823ff10ccdf5da595d72",
+  "candidate": "refined_candidate_combined.joblib",
+  "release": "external_v5.joblib"
+}

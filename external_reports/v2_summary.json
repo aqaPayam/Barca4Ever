@@ -1,0 +1,100 @@
+[
+  {
+    "dataset": "whole_match_cross_validation",
+    "noisy": false,
+    "model": "v1",
+    "spell_f1": 0.5571143457356014,
+    "macro_f1": 0.909369095149968,
+    "short_hits": 41,
+    "short_count": 463,
+    "short_recall": 0.08855291576673865
+  },
+  {
+    "dataset": "whole_match_cross_validation",
+    "noisy": false,
+    "model": "v2",
+    "spell_f1": 0.5887220683018544,
+    "macro_f1": 0.9181699127130204,
+    "short_hits": 73,
+    "short_count": 463,
+    "short_recall": 0.15766738660907129
+  },
+  {
+    "dataset": "whole_match_cross_validation",
+    "noisy": true,
+    "model": "v1",
+    "spell_f1": 0.40047882945554947,
+    "macro_f1": 0.8289714817604369,
+    "short_hits": 28,
+    "short_count": 463,
+    "short_recall": 0.06047516198704104
+  },
+  {
+    "dataset": "whole_match_cross_validation",
+    "noisy": true,
+    "model": "v2",
+    "spell_f1": 0.4170400261891046,
+    "macro_f1": 0.8367527751168369,
+    "short_hits": 51,
+    "short_count": 463,
+    "short_recall": 0.1101511879049676
+  },
+  {
+    "dataset": "reused_test_regression",
+    "noisy": false,
+    "model": "v1",
+    "spell_f1": 0.5143781220378805,
+    "macro_f1": 0.8959115582705071,
+    "short_hits": 38,
+    "short_count": 362,
+    "short_recall": 0.10497237569060773
+  },
+  {
+    "dataset": "reused_test_regression",
+    "noisy": false,
+    "model": "v2",
+    "spell_f1": 0.5563665206110117,
+    "macro_f1": 0.9073475981968917,
+    "short_hits": 60,
+    "short_count": 362,
+    "short_recall": 0.16574585635359115
+  },
+  {
+    "dataset": "reused_test_regression",
+    "noisy": true,
+    "model": "v1",
+    "spell_f1": 0.364735791093325,
+    "macro_f1": 0.8152859086356387,
+    "short_hits": 22,
+    "short_count": 362,
+    "short_recall": 0.06077348066298342
+  },
+  {
+    "dataset": "reused_test_regression",
+    "noisy": true,
+    "model": "v2",
+    "spell_f1": 0.39063787829574226,
+    "macro_f1": 0.8258837528426752,
+    "short_hits": 37,
+    "short_count": 362,
+    "short_recall": 0.10220994475138122
+  },
+  {
+    "dataset": "validation_selection",
+    "model": "v1",
+    "spell_f1": 0.4615101637359347,
+    "macro_f1": 0.8760539529016274,
+    "short_hits": 16,
+    "short_count": 188,
+    "short_recall": 0.0851063829787234
+  },
+  {
+    "dataset": "validation_selection",
+    "model": "v2",
+    "spell_f1": 0.486508221925388,
+    "macro_f1": 0.8814095754425043,
+    "short_hits": 31,
+    "short_count": 188,
+    "short_recall": 0.16489361702127658
+  }
+]

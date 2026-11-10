@@ -1,0 +1,15 @@
+{
+  "paper_checkpoint_epoch": 8,
+  "ball_embedding_norm": 11.326621055603027,
+  "player_embedding_norm": 3.8956918716430664,
+  "dead": {
+    "ball_self_mass": 0.4153996407985687,
+    "effective_objects": 14.3829345703125,
+    "max_abs_attention_logit": 44.55236053466797
+  },
+  "home": {
+    "ball_self_mass": 0.008398435078561306,
+    "effective_objects": 22.63011932373047,
+    "max_abs_attention_logit": 52.28111267089844
+  }
+}

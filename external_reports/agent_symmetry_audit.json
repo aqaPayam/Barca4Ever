@@ -1,0 +1,50 @@
+{
+  "status": "Descriptive frozen-network symmetry diagnostic only; no labels loaded or score fitting",
+  "device": "cpu",
+  "torch_threads": 2,
+  "seed": 20261117,
+  "windows": 64,
+  "windows_per_external_half": 32,
+  "window_reference_sha256": "265126b268c226223f05e7f1e8b283c967f16b12865601a68feaaab20299e11e",
+  "model_sha256": "cf8c70e4f84654996bb1f466a1c8578ee521d4ec0014f1e3df5ee535e9ee3bc6",
+  "external_cache_sha256": {
+    "J03WR9_0_0_8400_short_v1.npz": "c7db89375f9429ab664f4a34455b2d95c418ef8b8604968bb96a106e3be3ea22",
+    "J03WR9_1_0_8401_short_v1.npz": "ecfd467a4f820e69237b4bf8538784fba3c636be25f0c30da1ac315e231daea2"
+  },
+  "source_sha256": {
+    "audit_symmetry.py": "87c49b59b58cb274490038940a0e344c119b13f99e2c9138d4dff54ae66cf68d",
+    "paper2023_data.py": "863a3047f689300e2a1dc328249f705c879c4d76633992174d9cf8c299260f4a",
+    "paper2023_model.py": "a04f0cc2a49662135c76f8802a02b77de74d2c96eb825e18a2e58ae777f35f6d"
+  },
+  "transformations": {
+    "team_swap": "Exchange17-slot team groups and H/A role flags; restore H/A output columns",
+    "pitch_reflection": "Rotate pitch180degrees: negate observed XY/velocity and recompute relative features; preserve missing sentinels and team roles"
+  },
+  "team_swap": {
+    "mean_absolute_probability_difference": 0.015101499855518341,
+    "maximum_absolute_probability_difference": 0.1788330078125,
+    "mean_total_variation": 0.02265224978327751,
+    "maximum_total_variation": 0.1788330227136612,
+    "changed_top_label_count": 1,
+    "window_count": 64,
+    "per_class_mean_absolute_difference": {
+      "H": 0.022454187273979187,
+      "A": 0.018194301053881645,
+      "D": 0.004656009841710329
+    }
+  },
+  "pitch_reflection": {
+    "mean_absolute_probability_difference": 0.024319931864738464,
+    "maximum_absolute_probability_difference": 0.38443881273269653,
+    "mean_total_variation": 0.0364798977971077,
+    "maximum_total_variation": 0.38443881273269653,
+    "changed_top_label_count": 3,
+    "window_count": 64,
+    "per_class_mean_absolute_difference": {
+      "H": 0.035743605345487595,
+      "A": 0.029424259439110756,
+      "D": 0.00779193639755249
+    }
+  },
+  "caveat": "WR9 was used in prior development selection; disagreement indicates unlearned symmetry, not an achievable accuracy gain. Ensemble quality requires separate scoring."
+}

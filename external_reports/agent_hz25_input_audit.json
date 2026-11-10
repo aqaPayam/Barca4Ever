@@ -1,0 +1,37 @@
+{
+  "scope": "Synthetic input/model expansion tests and licensed external label/header audit only; no competition data accessed",
+  "sources_sha256": {
+    "hz25_data.py": "498140b54366cafb210f9112c4daf7bf75149f5ddc069c7037a1b321ed43422d",
+    "hz25_model.py": "e3012cfe8f1d6784f9c8962267f4c667c89d955baf4ee0a95c680fbb22635c37",
+    "paper2023_model.py": "a04f0cc2a49662135c76f8802a02b77de74d2c96eb825e18a2e58ae777f35f6d",
+    "paper2023_data.py": "863a3047f689300e2a1dc328249f705c879c4d76633992174d9cf8c299260f4a"
+  },
+  "checks": {
+    "actual_time_constant_velocity_16Hz": true,
+    "actual_time_constant_velocity_25Hz": true,
+    "raw_confidence_retained_through_interpolated_gap_16Hz": true,
+    "raw_confidence_retained_through_interpolated_gap_25Hz": true,
+    "all_missing_finite_sentinels_and_ages_16Hz": true,
+    "all_missing_finite_sentinels_and_ages_25Hz": true,
+    "inherited_tensors_bit_exact": true,
+    "new_input_columns_zero": true,
+    "expanded_network_same_function_with_nonzero_extra_channels": true
+  },
+  "model_test": "Synthetic width8 eval network,3 windows64x36; float32 outputs within1e-6",
+  "external_audit": {
+    "label_mapping_primary_source": "https://www.nature.com/articles/s41597-025-04505-y",
+    "all_seven_games_unknown_fraction": 0,
+    "all_seven_games_valid_runs": 2,
+    "WR9_trajectory_header_categories": {
+      "team": 51,
+      "BALL": 2
+    }
+  },
+  "findings": [
+    "Legacy neural missingness is computed after interpolation, losing raw observation confidence.",
+    "Legacy rounded16Hz velocity uses constant16 rather than actual source elapsed time.",
+    "Legacy training references and corruptions are reused each epoch.",
+    "No dense target-alignment or team-label leak found in inspected code.",
+    "Until-next-observation features are offline and can use future evidence beyond the trajectory window."
+  ]
+}

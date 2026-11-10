@@ -1,0 +1,47 @@
+{
+  "status": "External CPU production path versus selected GPU research reference, tolerance0.003 spellF1",
+  "rows": [
+    {
+      "noisy": false,
+      "spell_f1": 0.7164705882352941,
+      "macro_f1": 0.9514346967570922,
+      "gt_spells": 183,
+      "predicted_spells": 157,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 49,
+          "recall_iou50": 0.3877551020408163
+        },
+        "2_to_5s": {
+          "count": 49,
+          "recall_iou50": 0.673469387755102
+        },
+        "over_5s": {
+          "count": 85,
+          "recall_iou50": 0.9058823529411765
+        }
+      }
+    },
+    {
+      "noisy": true,
+      "spell_f1": 0.552046783625731,
+      "macro_f1": 0.89420739306181,
+      "gt_spells": 183,
+      "predicted_spells": 159,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 49,
+          "recall_iou50": 0.2653061224489796
+        },
+        "2_to_5s": {
+          "count": 49,
+          "recall_iou50": 0.42857142857142855
+        },
+        "over_5s": {
+          "count": 85,
+          "recall_iou50": 0.7647058823529411
+        }
+      }
+    }
+  ]
+}

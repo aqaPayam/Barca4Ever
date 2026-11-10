@@ -1,0 +1,58 @@
+{
+  "recipe": "relative",
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.4303835329344815,
+      "validation_accuracy": null,
+      "elapsed_seconds": 74.81
+    },
+    {
+      "epoch": 2,
+      "loss": 0.34801723722301786,
+      "validation_accuracy": null,
+      "elapsed_seconds": 149.16
+    },
+    {
+      "epoch": 3,
+      "loss": 0.3099401844736865,
+      "validation_accuracy": null,
+      "elapsed_seconds": 225.03
+    },
+    {
+      "epoch": 4,
+      "loss": 0.27824653860400705,
+      "validation_accuracy": null,
+      "elapsed_seconds": 300.88
+    },
+    {
+      "epoch": 5,
+      "loss": 0.2565319636060149,
+      "validation_accuracy": null,
+      "elapsed_seconds": 373.59
+    },
+    {
+      "epoch": 6,
+      "loss": 0.24109927151361696,
+      "validation_accuracy": null,
+      "elapsed_seconds": 446.41
+    },
+    {
+      "epoch": 7,
+      "loss": 0.22910867543781505,
+      "validation_accuracy": null,
+      "elapsed_seconds": 520.7
+    },
+    {
+      "epoch": 8,
+      "loss": 0.22464832556826989,
+      "validation_accuracy": null,
+      "elapsed_seconds": 597.91
+    }
+  ],
+  "matches": [
+    "J03WOH",
+    "J03WOY"
+  ],
+  "model_sha256": "bb7581670426853edf6582059d0a36d5c62e390a04fc5afb0cf8888f4fed05c3"
+}

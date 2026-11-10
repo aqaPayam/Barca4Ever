@@ -1,0 +1,98 @@
+{
+  "status": "External development; WR9 fits the gate, CV selects, single-candidate reused regression confirms",
+  "selected_on_cv": null,
+  "external_acceptance_passed": false,
+  "rows": [
+    {
+      "evaluation": "Whole-match development CV",
+      "candidate": "joint",
+      "tracking": "clean",
+      "baseline": {
+        "spell_f1": 0.7104659867305403,
+        "macro_f1": 0.937329066854845,
+        "short_hits": 191,
+        "short_count": 463,
+        "short_recall": 0.41252699784017277
+      },
+      "candidate_scores": {
+        "spell_f1": 0.706058609952614,
+        "macro_f1": 0.9363287334869576,
+        "short_hits": 197,
+        "short_count": 463,
+        "short_recall": 0.42548596112311016
+      }
+    },
+    {
+      "evaluation": "Whole-match development CV",
+      "candidate": "joint",
+      "tracking": "noise",
+      "baseline": {
+        "spell_f1": 0.5328512213188503,
+        "macro_f1": 0.8759862578337112,
+        "short_hits": 79,
+        "short_count": 463,
+        "short_recall": 0.17062634989200864
+      },
+      "candidate_scores": {
+        "spell_f1": 0.5247143935108609,
+        "macro_f1": 0.8737217878556005,
+        "short_hits": 87,
+        "short_count": 463,
+        "short_recall": 0.1879049676025918
+      }
+    },
+    {
+      "evaluation": "Whole-match development CV",
+      "candidate": "factorized",
+      "tracking": "clean",
+      "baseline": {
+        "spell_f1": 0.7104659867305403,
+        "macro_f1": 0.937329066854845,
+        "short_hits": 191,
+        "short_count": 463,
+        "short_recall": 0.41252699784017277
+      },
+      "candidate_scores": {
+        "spell_f1": 0.7051653246677001,
+        "macro_f1": 0.9361221312588309,
+        "short_hits": 198,
+        "short_count": 463,
+        "short_recall": 0.42764578833693306
+      }
+    },
+    {
+      "evaluation": "Whole-match development CV",
+      "candidate": "factorized",
+      "tracking": "noise",
+      "baseline": {
+        "spell_f1": 0.5328512213188503,
+        "macro_f1": 0.8759862578337112,
+        "short_hits": 79,
+        "short_count": 463,
+        "short_recall": 0.17062634989200864
+      },
+      "candidate_scores": {
+        "spell_f1": 0.5276808490227695,
+        "macro_f1": 0.8762096125410724,
+        "short_hits": 89,
+        "short_count": 463,
+        "short_recall": 0.19222462203023757
+      }
+    }
+  ],
+  "crosscheck_gates": {
+    "joint": {
+      "False_spell": false,
+      "False_short": true,
+      "True_spell": false,
+      "True_short": true
+    },
+    "factorized": {
+      "False_spell": false,
+      "False_short": true,
+      "True_spell": false,
+      "True_short": true
+    }
+  },
+  "regression_gates": null
+}

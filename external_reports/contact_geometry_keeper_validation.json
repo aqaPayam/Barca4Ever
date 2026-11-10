@@ -1,0 +1,98 @@
+{
+  "status": "External geometry-role assessment, no fitting; CPU inference",
+  "role_counts": {
+    "tp": 12,
+    "fp": 1,
+    "fn": 8
+  },
+  "rows": [
+    {
+      "half": 1,
+      "noisy": false,
+      "spell_f1": 0.7150442477876104,
+      "macro_f1": 0.950989196839398,
+      "gt_spells": 183,
+      "predicted_spells": 156,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 49,
+          "recall_iou50": 0.3469387755102041
+        },
+        "2_to_5s": {
+          "count": 49,
+          "recall_iou50": 0.673469387755102
+        },
+        "over_5s": {
+          "count": 85,
+          "recall_iou50": 0.9176470588235294
+        }
+      }
+    },
+    {
+      "half": 1,
+      "noisy": true,
+      "spell_f1": 0.556268221574344,
+      "macro_f1": 0.8940527224708239,
+      "gt_spells": 183,
+      "predicted_spells": 160,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 49,
+          "recall_iou50": 0.2653061224489796
+        },
+        "2_to_5s": {
+          "count": 49,
+          "recall_iou50": 0.40816326530612246
+        },
+        "over_5s": {
+          "count": 85,
+          "recall_iou50": 0.8
+        }
+      }
+    },
+    {
+      "half": 2,
+      "noisy": false,
+      "spell_f1": 0.7364161849710983,
+      "macro_f1": 0.9427914740002973,
+      "gt_spells": 187,
+      "predicted_spells": 159,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 45,
+          "recall_iou50": 0.28888888888888886
+        },
+        "2_to_5s": {
+          "count": 61,
+          "recall_iou50": 0.7049180327868853
+        },
+        "over_5s": {
+          "count": 81,
+          "recall_iou50": 0.9135802469135802
+        }
+      }
+    },
+    {
+      "half": 2,
+      "noisy": true,
+      "spell_f1": 0.5398280802292265,
+      "macro_f1": 0.8835289646209139,
+      "gt_spells": 187,
+      "predicted_spells": 162,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 45,
+          "recall_iou50": 0.1111111111111111
+        },
+        "2_to_5s": {
+          "count": 61,
+          "recall_iou50": 0.47540983606557374
+        },
+        "over_5s": {
+          "count": 81,
+          "recall_iou50": 0.7530864197530864
+        }
+      }
+    }
+  ]
+}

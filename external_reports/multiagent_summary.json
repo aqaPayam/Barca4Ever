@@ -1,0 +1,189 @@
+{
+  "status": "Repeated external development, not fresh blind testing",
+  "winner": {
+    "name": "Composite",
+    "validation": {
+      "alpha": 1.0,
+      "rate": 16,
+      "weight": 0.5,
+      "spell_f1": 0.6542165486029122,
+      "macro_f1": 0.9188605103305334,
+      "short_hits": 67,
+      "short_count": 188,
+      "short_recall": 0.35638297872340424
+    },
+    "prefix": "combined_refinement"
+  },
+  "validation": [
+    {
+      "name": "V4.1",
+      "spell_f1": 0.6442778883044507,
+      "short_hits": 62
+    },
+    {
+      "name": "Observability 16Hz",
+      "spell_f1": 0.6522884066150187,
+      "short_hits": 64
+    },
+    {
+      "name": "Observability 25Hz",
+      "spell_f1": 0.6270277218117661,
+      "short_hits": 65
+    },
+    {
+      "name": "Directed boundary",
+      "spell_f1": 0.6492126864196479,
+      "short_hits": 65
+    },
+    {
+      "name": "Physics+dense boundary",
+      "spell_f1": 0.6476146059693029,
+      "short_hits": 67
+    },
+    {
+      "name": "Composite",
+      "spell_f1": 0.6542165486029122,
+      "short_hits": 67
+    },
+    {
+      "name": "Symmetry averaging",
+      "spell_f1": 0.6480787835574087,
+      "macro_f1": 0.9192929050890013,
+      "short_hits": 64,
+      "short_count": 188,
+      "short_recall": 0.3404255319148936
+    }
+  ],
+  "cross_validation": [
+    {
+      "name": "Observability16",
+      "noisy": false,
+      "spell_f1": 0.7063531344720723,
+      "macro_f1": 0.9363805429350771,
+      "short_hits": 193,
+      "short_count": 463,
+      "short_recall": 0.4168466522678186
+    },
+    {
+      "name": "Observability16",
+      "noisy": true,
+      "spell_f1": 0.5364068623051997,
+      "macro_f1": 0.8772220313641476,
+      "short_hits": 79,
+      "short_count": 463,
+      "short_recall": 0.17062634989200864
+    },
+    {
+      "name": "Directed boundary",
+      "noisy": false,
+      "spell_f1": 0.7125650569989683,
+      "macro_f1": 0.9376677319154234,
+      "short_hits": 192,
+      "short_count": 463,
+      "short_recall": 0.4146868250539957
+    },
+    {
+      "name": "Directed boundary",
+      "noisy": true,
+      "spell_f1": 0.532499750223163,
+      "macro_f1": 0.8762299404519325,
+      "short_hits": 84,
+      "short_count": 463,
+      "short_recall": 0.18142548596112312
+    },
+    {
+      "name": "Physics+dense boundary",
+      "noisy": false,
+      "spell_f1": 0.7149104009270579,
+      "macro_f1": 0.9375238922422188,
+      "short_hits": 198,
+      "short_count": 463,
+      "short_recall": 0.42764578833693306
+    },
+    {
+      "name": "Physics+dense boundary",
+      "noisy": true,
+      "spell_f1": 0.5330838886196922,
+      "macro_f1": 0.8760493172229916,
+      "short_hits": 86,
+      "short_count": 463,
+      "short_recall": 0.1857451403887689
+    },
+    {
+      "name": "Composite",
+      "noisy": false,
+      "spell_f1": 0.7133432370683563,
+      "macro_f1": 0.9372959664195564,
+      "short_hits": 206,
+      "short_count": 463,
+      "short_recall": 0.4449244060475162
+    },
+    {
+      "name": "Composite",
+      "noisy": true,
+      "spell_f1": 0.5343998898576505,
+      "macro_f1": 0.8773245375509952,
+      "short_hits": 80,
+      "short_count": 463,
+      "short_recall": 0.17278617710583152
+    },
+    {
+      "name": "Symmetry averaging",
+      "noisy": false,
+      "spell_f1": 0.707518066469031,
+      "macro_f1": 0.9372131821168177,
+      "short_hits": 186,
+      "short_count": 463,
+      "short_recall": 0.4017278617710583
+    },
+    {
+      "name": "Symmetry averaging",
+      "noisy": true,
+      "spell_f1": 0.5376355333274148,
+      "macro_f1": 0.8796027585649094,
+      "short_hits": 81,
+      "short_count": 463,
+      "short_recall": 0.17494600431965443
+    }
+  ],
+  "regression": [
+    {
+      "name": "Physics+dense boundary",
+      "noisy": false,
+      "spell_f1": 0.6843747164581357,
+      "macro_f1": 0.9314191680627022,
+      "short_hits": 132,
+      "short_count": 362,
+      "short_recall": 0.36464088397790057
+    },
+    {
+      "name": "Physics+dense boundary",
+      "noisy": true,
+      "spell_f1": 0.5019851295597415,
+      "macro_f1": 0.8613753345502325,
+      "short_hits": 67,
+      "short_count": 362,
+      "short_recall": 0.1850828729281768
+    },
+    {
+      "name": "Composite",
+      "noisy": false,
+      "spell_f1": 0.6846591459696739,
+      "macro_f1": 0.9323566777411403,
+      "short_hits": 132,
+      "short_count": 362,
+      "short_recall": 0.36464088397790057
+    },
+    {
+      "name": "Composite",
+      "noisy": true,
+      "spell_f1": 0.514017348503642,
+      "macro_f1": 0.8663939757383404,
+      "short_hits": 71,
+      "short_count": 362,
+      "short_recall": 0.19613259668508287
+    }
+  ],
+  "model_sha256": "9b1169c5bf920a1bff811ba23a15b907c983c7364626823ff10ccdf5da595d72",
+  "selection_protocol_sha256": "a9e9f0b1a33c3c9d6c86b32d263f2604880f2591a725683d48c0cbd706359e03"
+}

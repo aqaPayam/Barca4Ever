@@ -1,0 +1,70 @@
+{
+  "kind": "refined_contact",
+  "version": "5",
+  "method": "combined",
+  "model_sha256": "9b1169c5bf920a1bff811ba23a15b907c983c7364626823ff10ccdf5da595d72",
+  "parent_model_sha256": "29f5115dd3ca8e865edf9dc735a49d6d8de03d8ddd910ee71724da9e9d4729aa",
+  "input_mode": "confidence20",
+  "rate": 16,
+  "neural_weight": 0.5,
+  "pair_alpha": 1.0,
+  "pair_feature_mode": "signed",
+  "architecture": {
+    "width": 64,
+    "dropout": 0.1,
+    "channels": 20,
+    "instant_skip": true,
+    "geometry_attention": true
+  },
+  "inference_device": "cpu",
+  "role_mode": "none",
+  "training_matches": [
+    "J03WOH",
+    "J03WOY",
+    "J03WPY",
+    "J03WQQ"
+  ],
+  "licence": "CC BY 4.0",
+  "attribution": "IDSSE, DFL/Sportec; Bassek et al. 2025; DOI 10.6084/m9.figshare.28196177",
+  "evidence": "Reused external validation, whole-match development comparisons and reused regression; not a new blind benchmark",
+  "gates": {
+    "cv_False_spell": true,
+    "cv_False_short": true,
+    "cv_True_spell": true,
+    "cv_True_short": true,
+    "reg_False_spell": true,
+    "reg_False_short": true,
+    "reg_True_spell": true,
+    "reg_True_short": true
+  },
+  "code_sha256": {
+    "refined_infer.py": "d8068831d4fe5bf82232669c4321511eeaef3bb345e7867a90c0564cda847522",
+    "hz25_data.py": "498140b54366cafb210f9112c4daf7bf75149f5ddc069c7037a1b321ed43422d",
+    "paper2023_data.py": "863a3047f689300e2a1dc328249f705c879c4d76633992174d9cf8c299260f4a",
+    "paper2023_model.py": "a04f0cc2a49662135c76f8802a02b77de74d2c96eb825e18a2e58ae777f35f6d",
+    "contact_input.py": "fdf12900da83518eac667b3b9e1246599bbd88fc73f614ade6d9741825005f54",
+    "boundary_refinement.py": "96c71835e6e5967aa89fab3de13ca9608ceabf0fe8aed60dbe00ff9d335d93d8",
+    "temporal_state.py": "5a3bb30b0a99767e1b4a6cf2f992cbd8bb08799b02557f79d8443848f662bd4c",
+    "temporal_decoders.py": "1b1ca54ad23e9cc10ed04e354c98d65ee20ad03a1e3af29e4d98bfaf953a5db1",
+    "possession_v2.py": "c891f81afa99543b7e96b3316bcbd28d5bcd26051d8db38b70087176aff62af3",
+    "learned_possession.py": "f6a3dd179bf2dc57b8b6fd6b270abec6ef92ae5c2ad9370205effb4441c020bc",
+    "infer_learned.py": "f905a81d1a18d1fc0acd30cdd01637377282453e71ea13e3a56badbb658037b2",
+    "barca4ever.py": "a113a1650c7175f7dec449d0d5feb0984ac58a5a27b4ce8bceec4644194f4e9c",
+    "games.py": "473bf0502a28d93ff49fe5c20be4e546e30a9d8fa4112ab50b1ecdaf44233064",
+    "torch_runtime.py": "2f219b6e4f26c79ed535419f5542b8cb24dcbe568b37ef3687d3055836935449",
+    "external_idsse.py": "3a4228b6395b36f97f3c47e7f7702f82933673ceb415c544c5d7763b681fa14f"
+  },
+  "evidence_sha256": {
+    "external_reports/combined_refinement_crosscheck.json": "a50665d40c0d61efd30389ec55a0c847aad03cb38bf82953164dc250f42728e4",
+    "external_reports/combined_refinement_regression.json": "6e9abe2b4fde500f5025284ad54dea1fb3b6430fd883fc79e2a4f9b6d2414241",
+    "HZ25_PROTOCOL.md": "8503894e27fc2250e45ec445e4bdcde8bb4da0ae2bba3a30007b21c2562718df",
+    "external_reports/hz25_selection.json": "88bd7cf83258154e76870c764a8c7bdc699b9d7f395b83953b6b6ec67a9d638b",
+    "external_reports/hz25_validation_16.json": "bbb6ea9fd27b16eb0f5d71c347c4cb22d52d93dc27cb56937567f7a981ffb282",
+    "models\\hz25\\rate16.pt": "39ddd40d16afe7f92a369d1bd526f24930807a96444bd0b1f765386830531962",
+    "models\\boundary_refinement\\full.joblib": "a5bd931ef7c611c7423c1cb53d96751c803e6e1cf9878c92414a29494eadc64c",
+    "external_reports\\combined_refinement_validation.json": "30aae7ba5a0e907550f29c5b891de8954ecd11ee219a99370c8f34022dc74861",
+    "COMBINED_REFINEMENT_PROTOCOL.md": "ad91f12b9338900b9eaefc6b2d82d236681846f3b61fd22515c5b44cc01d4657",
+    "boundary_refinement_protocol.md": "2ac17b829b5c82690c021cc715c87cd972fec782d09b2c4f2859f9e440e84b8e"
+  },
+  "promotion_source_sha256": "1ab9294f453db585999247852800c071e1f94122534406732adccb1a4297cb6a"
+}

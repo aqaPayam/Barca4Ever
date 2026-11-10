@@ -1,0 +1,82 @@
+[
+  {
+    "evaluation": "cross-validation",
+    "tracking": "clean",
+    "model": "v3",
+    "spell_f1": 0.6245173269800125,
+    "macro_f1": 0.9234816840502711,
+    "short_hits": 111,
+    "short_count": 463,
+    "short_recall": 0.23974082073434125
+  },
+  {
+    "evaluation": "cross-validation",
+    "tracking": "clean",
+    "model": "state_boundary",
+    "spell_f1": 0.6325779413237145,
+    "macro_f1": 0.9260233382420153,
+    "short_hits": 104,
+    "short_count": 463,
+    "short_recall": 0.22462203023758098
+  },
+  {
+    "evaluation": "cross-validation",
+    "tracking": "noise",
+    "model": "v3",
+    "spell_f1": 0.4178417325748458,
+    "macro_f1": 0.8391694415597417,
+    "short_hits": 61,
+    "short_count": 463,
+    "short_recall": 0.13174946004319654
+  },
+  {
+    "evaluation": "cross-validation",
+    "tracking": "noise",
+    "model": "state_boundary",
+    "spell_f1": 0.4402248037277477,
+    "macro_f1": 0.8447899732222355,
+    "short_hits": 64,
+    "short_count": 463,
+    "short_recall": 0.13822894168466524
+  },
+  {
+    "evaluation": "reused-test regression",
+    "tracking": "clean",
+    "model": "v3",
+    "spell_f1": 0.5895507792051543,
+    "macro_f1": 0.9138708093867272,
+    "short_hits": 81,
+    "short_count": 362,
+    "short_recall": 0.22375690607734808
+  },
+  {
+    "evaluation": "reused-test regression",
+    "tracking": "clean",
+    "model": "state_boundary",
+    "spell_f1": 0.5938983110247529,
+    "macro_f1": 0.9149775294273218,
+    "short_hits": 82,
+    "short_count": 362,
+    "short_recall": 0.2265193370165746
+  },
+  {
+    "evaluation": "reused-test regression",
+    "tracking": "noise",
+    "model": "v3",
+    "spell_f1": 0.4079229558662585,
+    "macro_f1": 0.8279348125273525,
+    "short_hits": 46,
+    "short_count": 362,
+    "short_recall": 0.1270718232044199
+  },
+  {
+    "evaluation": "reused-test regression",
+    "tracking": "noise",
+    "model": "state_boundary",
+    "spell_f1": 0.41913393266007,
+    "macro_f1": 0.8329379144396348,
+    "short_hits": 44,
+    "short_count": 362,
+    "short_recall": 0.12154696132596685
+  }
+]

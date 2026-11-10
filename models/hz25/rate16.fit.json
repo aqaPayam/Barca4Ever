@@ -1,0 +1,48 @@
+{
+  "kind": "observability_contact",
+  "architecture": {
+    "width": 64,
+    "dropout": 0.1,
+    "channels": 20,
+    "instant_skip": true,
+    "geometry_attention": true
+  },
+  "rate": 16,
+  "training_matches": [
+    "J03WOH",
+    "J03WOY",
+    "J03WPY",
+    "J03WQQ"
+  ],
+  "epochs": 2,
+  "seed": 20261116,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.25728944862437675,
+      "elapsed_seconds": 79.39100000000326,
+      "reference_sha256": "ac930d790d55c6c37b875eb11c5b746da208fef4a8ff425b12acd54e5cab7df2",
+      "reference_content_sha256": "23f5353b9986acdd8342ceaf7c3d1c23705fb51b4ce782e1f9ad9bd9f514b0f7"
+    },
+    {
+      "epoch": 2,
+      "loss": 0.2553481883405115,
+      "elapsed_seconds": 171.01600000000326,
+      "reference_sha256": "95fe8955a4032ad7d32f661d408e9574f16d201b3abd8d11592fe81da7a81102",
+      "reference_content_sha256": "51d5debdd000271cc1922ffe379a433880a1149ee3726562ada4eec97b99c8a8"
+    }
+  ],
+  "role_mode": "none",
+  "initializer_sha256": "cf8c70e4f84654996bb1f466a1c8578ee521d4ec0014f1e3df5ee535e9ee3bc6",
+  "source_sha256": {
+    "hz25_train.py": "d5b5f32e0a2cce9b514dfe3208154400d4ad643c64df341cb29e4dba70903804",
+    "hz25_data.py": "498140b54366cafb210f9112c4daf7bf75149f5ddc069c7037a1b321ed43422d",
+    "hz25_model.py": "e3012cfe8f1d6784f9c8962267f4c667c89d955baf4ee0a95c680fbb22635c37",
+    "paper2023_model.py": "a04f0cc2a49662135c76f8802a02b77de74d2c96eb825e18a2e58ae777f35f6d",
+    "paper2023_data.py": "863a3047f689300e2a1dc328249f705c879c4d76633992174d9cf8c299260f4a",
+    "train_paper2023.py": "edcef92a26ee3c987181dd149e4aa0489e22266dd848f6490870381822ae0d93",
+    "spell_sampling.py": "dd7fff129323de90acca690cb6faf707027d1fd1d664d4e0441f906dbe0bab6f",
+    "possession_v2.py": "c891f81afa99543b7e96b3316bcbd28d5bcd26051d8db38b70087176aff62af3",
+    "learned_possession.py": "f6a3dd179bf2dc57b8b6fd6b270abec6ef92ae5c2ad9370205effb4441c020bc"
+  }
+}

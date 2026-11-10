@@ -1,0 +1,9 @@
+{
+  "status": "One damaged external parsed-cache member rebuilt from checksum-verified licensed XML",
+  "checks": [
+    "All surviving arrays and entire second half exactly match original XML reparse",
+    "Clean/noisy 25Hz geometry and 16Hz object features exactly match historical caches"
+  ],
+  "old_sha256": "6a65b344da05391dd6c413dcc41ad62c400b197cf4100f5ff6d5528a2253c859",
+  "new_sha256": "4666f3c676911ff9b6bdae49e3b26b3bf466fe76f0c62dc1c2e43b2cb30453f3"
+}

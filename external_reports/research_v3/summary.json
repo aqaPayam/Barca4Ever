@@ -1,0 +1,167 @@
+[
+  {
+    "evaluation": "validation_selection",
+    "model": "v2",
+    "spell_f1": 0.486508221925388,
+    "macro_f1": 0.8814095754425043,
+    "short_hits": 31,
+    "short_count": 188,
+    "short_recall": 0.16489361702127658
+  },
+  {
+    "evaluation": "validation_selection",
+    "model": "hierarchical",
+    "spell_f1": 0.4829161442419344,
+    "macro_f1": 0.8788344974739718,
+    "short_hits": 31,
+    "short_count": 188,
+    "short_recall": 0.16489361702127658
+  },
+  {
+    "evaluation": "validation_selection",
+    "model": "learned_boundary",
+    "spell_f1": 0.5131529146856234,
+    "macro_f1": 0.8857479132562679,
+    "short_hits": 40,
+    "short_count": 188,
+    "short_recall": 0.2127659574468085
+  },
+  {
+    "evaluation": "validation_selection",
+    "model": "tcn",
+    "spell_f1": 0.4809384834223278,
+    "macro_f1": 0.8707640377149279,
+    "short_hits": 24,
+    "short_count": 188,
+    "short_recall": 0.1276595744680851
+  },
+  {
+    "evaluation": "validation_selection",
+    "model": "fusion",
+    "spell_f1": 0.5123535319352878,
+    "macro_f1": 0.8862320983219297,
+    "short_hits": 30,
+    "short_count": 188,
+    "short_recall": 0.1595744680851064
+  },
+  {
+    "evaluation": "cross_validation",
+    "model": "learned_boundary",
+    "noisy": false,
+    "spell_f1": 0.6245173269800125,
+    "macro_f1": 0.9234816840502711,
+    "short_hits": 111,
+    "short_count": 463,
+    "short_recall": 0.23974082073434125
+  },
+  {
+    "evaluation": "cross_validation",
+    "model": "v2",
+    "noisy": false,
+    "spell_f1": 0.5887220683018544,
+    "macro_f1": 0.9181699127130204,
+    "short_hits": 73,
+    "short_count": 463,
+    "short_recall": 0.15766738660907129
+  },
+  {
+    "evaluation": "cross_validation",
+    "model": "learned_boundary",
+    "noisy": true,
+    "spell_f1": 0.4178417325748458,
+    "macro_f1": 0.8391694415597417,
+    "short_hits": 61,
+    "short_count": 463,
+    "short_recall": 0.13174946004319654
+  },
+  {
+    "evaluation": "cross_validation",
+    "model": "v2",
+    "noisy": true,
+    "spell_f1": 0.4170400261891046,
+    "macro_f1": 0.8367527751168369,
+    "short_hits": 51,
+    "short_count": 463,
+    "short_recall": 0.1101511879049676
+  },
+  {
+    "evaluation": "cross_validation",
+    "model": "fusion",
+    "noisy": false,
+    "spell_f1": 0.5994416928963697,
+    "macro_f1": 0.9151433064373056,
+    "short_hits": 69,
+    "short_count": 463,
+    "short_recall": 0.1490280777537797
+  },
+  {
+    "evaluation": "cross_validation",
+    "model": "tcn",
+    "noisy": false,
+    "spell_f1": 0.5546781787963317,
+    "macro_f1": 0.8978570734370018,
+    "short_hits": 64,
+    "short_count": 463,
+    "short_recall": 0.13822894168466524
+  },
+  {
+    "evaluation": "cross_validation",
+    "model": "fusion",
+    "noisy": true,
+    "spell_f1": 0.41512460669919315,
+    "macro_f1": 0.8361911677155951,
+    "short_hits": 32,
+    "short_count": 463,
+    "short_recall": 0.06911447084233262
+  },
+  {
+    "evaluation": "cross_validation",
+    "model": "tcn",
+    "noisy": true,
+    "spell_f1": 0.3917032990552313,
+    "macro_f1": 0.8127994908619093,
+    "short_hits": 28,
+    "short_count": 463,
+    "short_recall": 0.06047516198704104
+  },
+  {
+    "evaluation": "reused_test_regression",
+    "model": "learned_boundary",
+    "noisy": false,
+    "spell_f1": 0.5895507792051543,
+    "macro_f1": 0.9138708093867272,
+    "short_hits": 81,
+    "short_count": 362,
+    "short_recall": 0.22375690607734808
+  },
+  {
+    "evaluation": "reused_test_regression",
+    "model": "v2",
+    "noisy": false,
+    "spell_f1": 0.5563665206110117,
+    "macro_f1": 0.9073475981968917,
+    "short_hits": 60,
+    "short_count": 362,
+    "short_recall": 0.16574585635359115
+  },
+  {
+    "evaluation": "reused_test_regression",
+    "model": "learned_boundary",
+    "noisy": true,
+    "spell_f1": 0.4079229558662585,
+    "macro_f1": 0.8279348125273525,
+    "short_hits": 46,
+    "short_count": 362,
+    "short_recall": 0.1270718232044199
+  },
+  {
+    "evaluation": "reused_test_regression",
+    "model": "v2",
+    "noisy": true,
+    "spell_f1": 0.39063787829574226,
+    "macro_f1": 0.8258837528426752,
+    "short_hits": 37,
+    "short_count": 362,
+    "short_recall": 0.10220994475138122
+  }
+]

@@ -1,0 +1,132 @@
+"""Build a source-only allowlist archive; never scan or package gated assets."""
+from pathlib import Path
+import zipfile
+
+ROOT = Path(__file__).resolve().parent
+FILES = [
+    ".gitignore", "LICENSE", "barca4ever.py", "learned_possession.py", "infer_learned.py",
+    "games.py", "train_external.py", "select_temporal.py", "external_idsse.py",
+    "download_external.py", "smoke_model.py", "write_external_report.py",
+    "requirements-model.txt", "requirements.txt", "Run-Barca4Ever.ps1", "MODEL_GUIDE.md",
+    "EXTERNAL_DATA.md", "EXTERNAL_RESULTS.md", "models/external_v1.joblib", "models/README.md",
+    "external_reports/frozen_selection.json", "external_reports/heldout_results.json",
+    "evaluation/possession_metrics.py", "evaluation/validate_submission.py",
+    "tests/test_barca4ever.py", "tests/test_learned.py", "tests/test_external_adapter.py",
+    "possession_v2.py", "develop_v2.py", "crosscheck_v2.py", "report_v2.py", "promote_v2.py",
+    "V2_MODEL_GUIDE.md", "V2_RESULTS.md", "tests/test_v2.py",
+    "models/external_v2.joblib", "models/external_v2.joblib.metadata.json",
+    "external_reports/v2_validation.json", "external_reports/v1_short_spell_validation.json",
+    "external_reports/v2_crosscheck.json", "external_reports/v2_regression.json", "external_reports/v2_summary.json",
+    "package_code.py", "temporal_decoders.py", "infer_boundary.py", "promote_v3.py", "report_research.py",
+    "research_data.py", "research_trees.py", "research_tcn.py", "research_fusion.py",
+    "research_crosscheck.py", "research_fusion_crosscheck.py", "research_regression.py",
+    "requirements-research.txt", "RESEARCH_PROTOCOL.md", "MODEL_RESEARCH_RESULTS.md", "V3_MODEL_GUIDE.md",
+    "tests/test_research_models.py", "models/external_v3.joblib", "models/external_v3.joblib.metadata.json",
+    "models/research_v3/hierarchical.joblib", "models/research_v3/learned_boundary.joblib", "models/research_v3/tcn.pt",
+    "external_reports/research_v3/hierarchical.json", "external_reports/research_v3/learned_boundary.json",
+    "external_reports/research_v3/tcn.json", "external_reports/research_v3/fusion.json",
+    "external_reports/research_v3/boundary_crosscheck.json", "external_reports/research_v3/fusion_crosscheck.json",
+    "external_reports/research_v3/boundary_regression.json", "external_reports/research_v3/summary.json",
+    "torch_runtime.py", "paper2023_data.py", "paper2023_model.py", "train_paper2023.py",
+    "crosscheck_paper2023.py", "crosscheck_fused_paper2023.py", "evaluate_paper2023.py", "fuse_paper2023.py",
+    "contact_input.py", "infer_contact.py", "promote_contact.py", "check_contact_engine.py", "write_v4_report.py",
+    "report_paper2023.py", "spell_sampling.py", "research_state_boundaries.py", "crosscheck_state_boundaries.py",
+    "regression_state_boundaries.py", "blend_state_boundaries.py", "temporal_state.py", "infer_changes.py",
+    "diagnose_keeper_absence.py", "diagnose_keeper_geometry.py", "requirements-contact.txt", "requirements-paper2023.txt",
+    "PAPER_2023_PROTOCOL.md", "PAPER_2023_RESULTS.md", "STATE_BOUNDARY_RESULTS.md", "V4_MODEL_GUIDE.md",
+    "tests/test_paper2023.py", "tests/test_state_boundaries.py", "tests/test_spell_sampling.py",
+    "models/external_v4.joblib", "models/external_v4.joblib.metadata.json", "models/state_boundary.joblib",
+    "models/blended_boundary.joblib", "models/paper2023/paper.pt", "models/paper2023/paper.validation.json",
+    "models/paper2023/adapted.pt", "models/paper2023/adapted.validation.json",
+    "models/paper2023/relative.pt", "models/paper2023/relative.validation.json",
+    "models/paper2023/rolefree.pt", "models/paper2023/rolefree.validation.json",
+    "models/paper2023/fusion.validation.json", "models/paper2023/fusion_rolefree.validation.json",
+    "models/paper2023/relative_fold1.pt", "models/paper2023/relative_fold1.fit.json",
+    "models/paper2023/relative_fold2.pt", "models/paper2023/relative_fold2.fit.json",
+    "models/paper2023/rolefree_fold1.pt", "models/paper2023/rolefree_fold1.fit.json",
+    "models/paper2023/rolefree_fold2.pt", "models/paper2023/rolefree_fold2.fit.json",
+    "research_snapshots/paper2023_data_before_velocity_scaling.py", "research_snapshots/paper2023_model_before_instant_skip.py",
+    "research_snapshots/train_paper2023_before_sampler.py", "research_snapshots/train_paper2023_before_rolefree.py",
+    "research_snapshots/provenance.json", "external_reports/state_boundary_validation.json",
+    "external_reports/state_boundary_crosscheck.json", "external_reports/state_boundary_regression.json",
+    "external_reports/state_boundary_summary.json", "external_reports/blend_boundary_validation.json",
+    "external_reports/blend_boundary_crosscheck.json", "external_reports/blend_boundary_regression.json",
+    "external_reports/paper2023_attention_diagnostic.json", "external_reports/paper2023_summary.json",
+    "external_reports/paper2023_crosscheck.json", "external_reports/paper2023_rolefree_crosscheck.json",
+    "external_reports/paper2023_regression_paper.json", "external_reports/paper2023_regression_adapted.json",
+    "external_reports/paper2023_regression_relative.json", "external_reports/paper2023_regression_rolefree.json",
+    "external_reports/paper2023_regression_fusion.json", "external_reports/paper2023_regression_fusion_rolefree.json",
+    "external_reports/contact_missing_keeper_validation.json", "external_reports/contact_geometry_keeper_validation.json",
+    "external_reports/contact_production_check.json", "submission/Barca4Ever_v3.md",
+    "diagnose_v4_short.py", "research_v4_decoder.py", "report_v4_decoder.py", "promote_v4_decoder.py",
+    "V4_DECODER_PROTOCOL.md", "V4_DECODER_RESULTS.md", "V4_1_MODEL_GUIDE.md",
+    "models/external_v4_1.joblib", "models/external_v4_1.joblib.metadata.json",
+    "external_reports/v4_short_error_diagnostic.json", "external_reports/v4_decoder_validation.json",
+    "external_reports/v4_decoder_crosscheck.json", "external_reports/v4_decoder_regression.json",
+    "external_reports/v4_decoder_summary.json", "external_reports/contact_decoder_production_check.json",
+    "submission/Barca4Ever_v4.md",
+    "V5_MODEL_GUIDE.md", "MULTIAGENT_RESULTS.md", "MULTIAGENT_SELECTION_PROTOCOL.md",
+    "COMBINED_REFINEMENT_PROTOCOL.md", "HZ25_PROTOCOL.md", "TOUCH_PHYSICS_PROTOCOL.md",
+    "RESEARCH_AGENT_METHODS.md", "PAPER_RESEARCH_NOTES_2026_11_06.md",
+    "refined_infer.py", "promote_refined.py", "check_refined_engine.py", "check_refined_pipeline.py",
+    "hz25_data.py", "hz25_model.py", "hz25_train.py", "hz25_research.py", "hz25_select.py",
+    "combined_refinement_research.py", "report_multiagent.py", "write_v5_report.py",
+    "boundary_refinement.py", "boundary_refinement_research.py", "boundary_refinement_report.py",
+    "boundary_refinement_protocol.md", "boundary_refinement_RESULTS.md",
+    "touch_physics.py", "boundary_physics.py", "boundary_physics_research.py", "boundary_physics_report.py",
+    "boundary_physics_protocol.md", "boundary_physics_RESULTS.md",
+    "audit_symmetry.py", "tta_features.py", "tta_research.py", "tta_report.py", "TTA_PROTOCOL.md", "TTA_RESULTS.md",
+    "residual_missing_data.py", "residual_missing_model.py", "residual_missing_train.py",
+    "residual_missing_research.py", "residual_missing_report.py", "RESIDUAL_MISSING_PROTOCOL.md", "RESIDUAL_MISSING_RESULTS.md",
+    "tests/test_hz25.py", "tests/test_boundary_refinement.py", "tests/test_touch_physics.py",
+    "tests/test_boundary_physics.py", "tests/test_refined_infer.py", "tests/test_tta_features.py", "tests/test_residual_missing.py",
+    "models/external_v5.joblib", "models/external_v5.joblib.metadata.json",
+    "models/hz25/rate16.pt", "models/hz25/rate16.fit.json", "models/hz25/rate25.pt", "models/hz25/rate25.fit.json",
+    "models/hz25/rate16_fold1.pt", "models/hz25/rate16_fold1.fit.json", "models/hz25/rate16_fold2.pt", "models/hz25/rate16_fold2.fit.json",
+    "models/boundary_refinement/full.joblib", "models/boundary_refinement/fold1.joblib", "models/boundary_refinement/fold2.joblib",
+    "models/boundary_physics/full.joblib", "models/boundary_physics/fold1.joblib", "models/boundary_physics/fold2.joblib",
+    "models/residual_missing/full.pt", "models/residual_missing/full.fit.json",
+    "research_snapshots/hz25_research_before_components_cache.py", "submission/Barca4Ever_v4_1.md",
+    "external_reports/hz25_validation_16.json", "external_reports/hz25_validation_25.json",
+    "external_reports/hz25_selection.json", "external_reports/hz25_crosscheck.json",
+    "external_reports/boundary_refinement_validation.json", "external_reports/boundary_refinement_crosscheck.json",
+    "external_reports/combined_refinement_validation.json", "external_reports/combined_refinement_crosscheck.json", "external_reports/combined_refinement_regression.json",
+    "external_reports/boundary_physics_validation.json", "external_reports/boundary_physics_crosscheck.json", "external_reports/boundary_physics_regression.json",
+    "external_reports/tta_validation.json", "external_reports/tta_crosscheck.json", "external_reports/tta_original_reuse_audit.json",
+    "external_reports/residual_missing_validation.json", "external_reports/agent_cache_integrity_repair.json",
+    "external_reports/agent_hz25_input_audit.json", "external_reports/agent_symmetry_audit.json",
+    "external_reports/refined_production_check.json", "external_reports/refined_pipeline_check.json",
+    "external_reports/refined_release_copy.json", "external_reports/multiagent_summary.json",
+    "smart_fusion.py", "research_smart_fusion.py", "report_smart_fusion.py", "SMART_FUSION_PROTOCOL.md", "SMART_FUSION_RESULTS.md",
+    "score_fusion.py", "research_score_fusion.py", "SCORE_FUSION_PROTOCOL.md",
+    "nonlinear_fusion.py", "research_nonlinear_fusion.py", "NONLINEAR_FUSION_PROTOCOL.md",
+    "conservative_fusion.py", "research_conservative_fusion.py", "SMART_FUSION_CONSERVATIVE_PROTOCOL.md",
+    "report_all_fusion.py", "SMART_FUSION_ALL_RESULTS.md",
+    "tests/test_smart_fusion.py", "tests/test_score_fusion.py", "tests/test_nonlinear_fusion.py", "tests/test_conservative_fusion.py",
+    "models/smart_fusion/joint_fold1.joblib", "models/smart_fusion/joint_fold2.joblib",
+    "models/smart_fusion/factorized_fold1.joblib", "models/smart_fusion/factorized_fold2.joblib",
+    "models/smart_fusion/nonlinear_fold1.joblib", "models/smart_fusion/nonlinear_fold2.joblib",
+    "models/smart_fusion/score_fold1.json", "models/smart_fusion/score_fold2.json",
+    "external_reports/smart_fusion_crosscheck.json", "external_reports/smart_fusion_summary.json",
+    "external_reports/score_fusion_crosscheck.json", "external_reports/nonlinear_fusion_crosscheck.json",
+    "external_reports/conservative_fusion_crosscheck.json", "external_reports/all_smart_fusion_summary.json",
+]
+
+
+if __name__ == "__main__":
+    target = ROOT / "submission" / "Barca4Ever-public-code.zip"
+    assert len(FILES) == len(set(FILES)), "Duplicate archive entry"
+    missing = [name for name in FILES + ["submission/PUBLIC_README.md", "submission/Barca4Ever.md"] if not (ROOT / name).is_file()]
+    if missing:
+        raise FileNotFoundError("Required release files missing: " + ", ".join(missing))
+    with zipfile.ZipFile(target, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for name in FILES:
+            archive.write(ROOT / name, name)
+        archive.write(ROOT / "submission" / "PUBLIC_README.md", "README.md")
+        archive.write(ROOT / "submission" / "Barca4Ever.md", "Barca4Ever.md")
+    with zipfile.ZipFile(target) as archive:
+        if archive.testzip() is not None:
+            raise ValueError("Archive CRC failure")
+        names = archive.namelist()
+        assert not any(n.startswith(("data/", "external_data/", "external_cache/", "local_outputs/", "evaluation/results/")) for n in names)
+        print("Public code archive verified: {} explicitly allowed files; no match data or predictions.".format(len(names)))

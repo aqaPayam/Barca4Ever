@@ -1,0 +1,22 @@
+{
+  "recipe": "rolefree",
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 0.24794233603703092,
+      "validation_accuracy": null,
+      "elapsed_seconds": 73.62
+    },
+    {
+      "epoch": 2,
+      "loss": 0.24096897858030655,
+      "validation_accuracy": null,
+      "elapsed_seconds": 146.76
+    }
+  ],
+  "matches": [
+    "J03WOH",
+    "J03WOY"
+  ],
+  "model_sha256": "20b2a70c9fe4a7892a5d3ea58ca15757da13adcdc9b5d05e7693ed55e1823f1c"
+}

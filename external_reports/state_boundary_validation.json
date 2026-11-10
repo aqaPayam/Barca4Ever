@@ -1,0 +1,480 @@
+{
+  "status": "External validation selection only",
+  "trials": [
+    {
+      "penalty": 8,
+      "boundary_scale": 4,
+      "rows": [
+        {
+          "half": 1,
+          "noisy": false,
+          "spell_f1": 0.6154727793696274,
+          "macro_f1": 0.9393925034853838,
+          "gt_spells": 183,
+          "predicted_spells": 166,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 49,
+              "recall_iou50": 0.30612244897959184
+            },
+            "2_to_5s": {
+              "count": 49,
+              "recall_iou50": 0.4897959183673469
+            },
+            "over_5s": {
+              "count": 85,
+              "recall_iou50": 0.8588235294117647
+            }
+          }
+        },
+        {
+          "half": 1,
+          "noisy": true,
+          "spell_f1": 0.38277511961722493,
+          "macro_f1": 0.8434372085279033,
+          "gt_spells": 183,
+          "predicted_spells": 235,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 49,
+              "recall_iou50": 0.2653061224489796
+            },
+            "2_to_5s": {
+              "count": 49,
+              "recall_iou50": 0.2857142857142857
+            },
+            "over_5s": {
+              "count": 85,
+              "recall_iou50": 0.6823529411764706
+            }
+          }
+        },
+        {
+          "half": 2,
+          "noisy": false,
+          "spell_f1": 0.6101333333333333,
+          "macro_f1": 0.921270051854581,
+          "gt_spells": 187,
+          "predicted_spells": 188,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 45,
+              "recall_iou50": 0.28888888888888886
+            },
+            "2_to_5s": {
+              "count": 61,
+              "recall_iou50": 0.5573770491803278
+            },
+            "over_5s": {
+              "count": 81,
+              "recall_iou50": 0.8395061728395061
+            }
+          }
+        },
+        {
+          "half": 2,
+          "noisy": true,
+          "spell_f1": 0.3747663551401869,
+          "macro_f1": 0.8250333427668028,
+          "gt_spells": 187,
+          "predicted_spells": 241,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 45,
+              "recall_iou50": 0.13333333333333333
+            },
+            "2_to_5s": {
+              "count": 61,
+              "recall_iou50": 0.39344262295081966
+            },
+            "over_5s": {
+              "count": 81,
+              "recall_iou50": 0.5679012345679012
+            }
+          }
+        }
+      ],
+      "spell_f1": 0.4957868968650932
+    },
+    {
+      "penalty": 8,
+      "boundary_scale": 16,
+      "rows": [
+        {
+          "half": 1,
+          "noisy": false,
+          "spell_f1": 0.5841269841269842,
+          "macro_f1": 0.9382233524844278,
+          "gt_spells": 183,
+          "predicted_spells": 195,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 49,
+              "recall_iou50": 0.3469387755102041
+            },
+            "2_to_5s": {
+              "count": 49,
+              "recall_iou50": 0.4897959183673469
+            },
+            "over_5s": {
+              "count": 85,
+              "recall_iou50": 0.8705882352941177
+            }
+          }
+        },
+        {
+          "half": 1,
+          "noisy": true,
+          "spell_f1": 0.3562105263157894,
+          "macro_f1": 0.8350694452213504,
+          "gt_spells": 183,
+          "predicted_spells": 292,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 49,
+              "recall_iou50": 0.2857142857142857
+            },
+            "2_to_5s": {
+              "count": 49,
+              "recall_iou50": 0.30612244897959184
+            },
+            "over_5s": {
+              "count": 85,
+              "recall_iou50": 0.7058823529411765
+            }
+          }
+        },
+        {
+          "half": 2,
+          "noisy": false,
+          "spell_f1": 0.5571764705882354,
+          "macro_f1": 0.9177938295204485,
+          "gt_spells": 187,
+          "predicted_spells": 238,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 45,
+              "recall_iou50": 0.3333333333333333
+            },
+            "2_to_5s": {
+              "count": 61,
+              "recall_iou50": 0.5573770491803278
+            },
+            "over_5s": {
+              "count": 81,
+              "recall_iou50": 0.8518518518518519
+            }
+          }
+        },
+        {
+          "half": 2,
+          "noisy": true,
+          "spell_f1": 0.32816326530612244,
+          "macro_f1": 0.8137937237838346,
+          "gt_spells": 187,
+          "predicted_spells": 303,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 45,
+              "recall_iou50": 0.1111111111111111
+            },
+            "2_to_5s": {
+              "count": 61,
+              "recall_iou50": 0.4262295081967213
+            },
+            "over_5s": {
+              "count": 81,
+              "recall_iou50": 0.5432098765432098
+            }
+          }
+        }
+      ],
+      "spell_f1": 0.45641931158428284
+    },
+    {
+      "penalty": 16,
+      "boundary_scale": 4,
+      "rows": [
+        {
+          "half": 1,
+          "noisy": false,
+          "spell_f1": 0.6215384615384616,
+          "macro_f1": 0.9414630516874265,
+          "gt_spells": 183,
+          "predicted_spells": 142,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 49,
+              "recall_iou50": 0.30612244897959184
+            },
+            "2_to_5s": {
+              "count": 49,
+              "recall_iou50": 0.40816326530612246
+            },
+            "over_5s": {
+              "count": 85,
+              "recall_iou50": 0.8235294117647058
+            }
+          }
+        },
+        {
+          "half": 1,
+          "noisy": true,
+          "spell_f1": 0.43497267759562847,
+          "macro_f1": 0.8554382160843274,
+          "gt_spells": 183,
+          "predicted_spells": 183,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 49,
+              "recall_iou50": 0.2653061224489796
+            },
+            "2_to_5s": {
+              "count": 49,
+              "recall_iou50": 0.2653061224489796
+            },
+            "over_5s": {
+              "count": 85,
+              "recall_iou50": 0.6941176470588235
+            }
+          }
+        },
+        {
+          "half": 2,
+          "noisy": false,
+          "spell_f1": 0.6175438596491228,
+          "macro_f1": 0.9208212230079053,
+          "gt_spells": 187,
+          "predicted_spells": 155,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 45,
+              "recall_iou50": 0.15555555555555556
+            },
+            "2_to_5s": {
+              "count": 61,
+              "recall_iou50": 0.5081967213114754
+            },
+            "over_5s": {
+              "count": 81,
+              "recall_iou50": 0.8518518518518519
+            }
+          }
+        },
+        {
+          "half": 2,
+          "noisy": true,
+          "spell_f1": 0.38125,
+          "macro_f1": 0.8343758226875305,
+          "gt_spells": 187,
+          "predicted_spells": 197,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 45,
+              "recall_iou50": 0.06666666666666667
+            },
+            "2_to_5s": {
+              "count": 61,
+              "recall_iou50": 0.3442622950819672
+            },
+            "over_5s": {
+              "count": 81,
+              "recall_iou50": 0.5679012345679012
+            }
+          }
+        }
+      ],
+      "spell_f1": 0.5138262496958033
+    },
+    {
+      "penalty": 16,
+      "boundary_scale": 16,
+      "rows": [
+        {
+          "half": 1,
+          "noisy": false,
+          "spell_f1": 0.6351585014409221,
+          "macro_f1": 0.9404718930321722,
+          "gt_spells": 183,
+          "predicted_spells": 164,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 49,
+              "recall_iou50": 0.30612244897959184
+            },
+            "2_to_5s": {
+              "count": 49,
+              "recall_iou50": 0.5102040816326531
+            },
+            "over_5s": {
+              "count": 85,
+              "recall_iou50": 0.8705882352941177
+            }
+          }
+        },
+        {
+          "half": 1,
+          "noisy": true,
+          "spell_f1": 0.4048192771084337,
+          "macro_f1": 0.8485496730468336,
+          "gt_spells": 183,
+          "predicted_spells": 232,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 49,
+              "recall_iou50": 0.2653061224489796
+            },
+            "2_to_5s": {
+              "count": 49,
+              "recall_iou50": 0.32653061224489793
+            },
+            "over_5s": {
+              "count": 85,
+              "recall_iou50": 0.7176470588235294
+            }
+          }
+        },
+        {
+          "half": 2,
+          "noisy": false,
+          "spell_f1": 0.6219839142091153,
+          "macro_f1": 0.9247856624899918,
+          "gt_spells": 187,
+          "predicted_spells": 186,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 45,
+              "recall_iou50": 0.3111111111111111
+            },
+            "2_to_5s": {
+              "count": 61,
+              "recall_iou50": 0.5737704918032787
+            },
+            "over_5s": {
+              "count": 81,
+              "recall_iou50": 0.8271604938271605
+            }
+          }
+        },
+        {
+          "half": 2,
+          "noisy": true,
+          "spell_f1": 0.38081534772182246,
+          "macro_f1": 0.8288078493244345,
+          "gt_spells": 187,
+          "predicted_spells": 230,
+          "recall_by_duration": {
+            "under_2s": {
+              "count": 45,
+              "recall_iou50": 0.1111111111111111
+            },
+            "2_to_5s": {
+              "count": 61,
+              "recall_iou50": 0.39344262295081966
+            },
+            "over_5s": {
+              "count": 81,
+              "recall_iou50": 0.5802469135802469
+            }
+          }
+        }
+      ],
+      "spell_f1": 0.5106942601200734
+    }
+  ],
+  "selected": {
+    "penalty": 16,
+    "boundary_scale": 4,
+    "rows": [
+      {
+        "half": 1,
+        "noisy": false,
+        "spell_f1": 0.6215384615384616,
+        "macro_f1": 0.9414630516874265,
+        "gt_spells": 183,
+        "predicted_spells": 142,
+        "recall_by_duration": {
+          "under_2s": {
+            "count": 49,
+            "recall_iou50": 0.30612244897959184
+          },
+          "2_to_5s": {
+            "count": 49,
+            "recall_iou50": 0.40816326530612246
+          },
+          "over_5s": {
+            "count": 85,
+            "recall_iou50": 0.8235294117647058
+          }
+        }
+      },
+      {
+        "half": 1,
+        "noisy": true,
+        "spell_f1": 0.43497267759562847,
+        "macro_f1": 0.8554382160843274,
+        "gt_spells": 183,
+        "predicted_spells": 183,
+        "recall_by_duration": {
+          "under_2s": {
+            "count": 49,
+            "recall_iou50": 0.2653061224489796
+          },
+          "2_to_5s": {
+            "count": 49,
+            "recall_iou50": 0.2653061224489796
+          },
+          "over_5s": {
+            "count": 85,
+            "recall_iou50": 0.6941176470588235
+          }
+        }
+      },
+      {
+        "half": 2,
+        "noisy": false,
+        "spell_f1": 0.6175438596491228,
+        "macro_f1": 0.9208212230079053,
+        "gt_spells": 187,
+        "predicted_spells": 155,
+        "recall_by_duration": {
+          "under_2s": {
+            "count": 45,
+            "recall_iou50": 0.15555555555555556
+          },
+          "2_to_5s": {
+            "count": 61,
+            "recall_iou50": 0.5081967213114754
+          },
+          "over_5s": {
+            "count": 81,
+            "recall_iou50": 0.8518518518518519
+          }
+        }
+      },
+      {
+        "half": 2,
+        "noisy": true,
+        "spell_f1": 0.38125,
+        "macro_f1": 0.8343758226875305,
+        "gt_spells": 187,
+        "predicted_spells": 197,
+        "recall_by_duration": {
+          "under_2s": {
+            "count": 45,
+            "recall_iou50": 0.06666666666666667
+          },
+          "2_to_5s": {
+            "count": 61,
+            "recall_iou50": 0.3442622950819672
+          },
+          "over_5s": {
+            "count": 81,
+            "recall_iou50": 0.5679012345679012
+          }
+        }
+      }
+    ],
+    "spell_f1": 0.5138262496958033
+  }
+}

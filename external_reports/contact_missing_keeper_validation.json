@@ -1,0 +1,191 @@
+{
+  "status": "External feature-absence stress assessment; CPU inference versus recorded GPU validation reference",
+  "rows": [
+    {
+      "half": 1,
+      "noisy": false,
+      "spell_f1": 0.6439628482972137,
+      "macro_f1": 0.9433694112036214,
+      "gt_spells": 183,
+      "predicted_spells": 140,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 49,
+          "recall_iou50": 0.2857142857142857
+        },
+        "2_to_5s": {
+          "count": 49,
+          "recall_iou50": 0.5102040816326531
+        },
+        "over_5s": {
+          "count": 85,
+          "recall_iou50": 0.8470588235294118
+        }
+      }
+    },
+    {
+      "half": 1,
+      "noisy": true,
+      "spell_f1": 0.5249249249249249,
+      "macro_f1": 0.8925298689741515,
+      "gt_spells": 183,
+      "predicted_spells": 150,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 49,
+          "recall_iou50": 0.24489795918367346
+        },
+        "2_to_5s": {
+          "count": 49,
+          "recall_iou50": 0.3469387755102041
+        },
+        "over_5s": {
+          "count": 85,
+          "recall_iou50": 0.7294117647058823
+        }
+      }
+    },
+    {
+      "half": 2,
+      "noisy": false,
+      "spell_f1": 0.6694362017804154,
+      "macro_f1": 0.9284855462105671,
+      "gt_spells": 187,
+      "predicted_spells": 150,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 45,
+          "recall_iou50": 0.2222222222222222
+        },
+        "2_to_5s": {
+          "count": 61,
+          "recall_iou50": 0.5409836065573771
+        },
+        "over_5s": {
+          "count": 81,
+          "recall_iou50": 0.8765432098765432
+        }
+      }
+    },
+    {
+      "half": 2,
+      "noisy": true,
+      "spell_f1": 0.49557522123893805,
+      "macro_f1": 0.8768407310127871,
+      "gt_spells": 187,
+      "predicted_spells": 152,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 45,
+          "recall_iou50": 0.08888888888888889
+        },
+        "2_to_5s": {
+          "count": 61,
+          "recall_iou50": 0.36065573770491804
+        },
+        "over_5s": {
+          "count": 81,
+          "recall_iou50": 0.7160493827160493
+        }
+      }
+    }
+  ],
+  "reference_rows": [
+    {
+      "match": "J03WR9",
+      "half": 1,
+      "noisy": false,
+      "model": "fusion",
+      "spell_f1": 0.7181286549707603,
+      "macro_f1": 0.9518863995178751,
+      "gt_spells": 183,
+      "predicted_spells": 159,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 49,
+          "recall_iou50": 0.3469387755102041
+        },
+        "2_to_5s": {
+          "count": 49,
+          "recall_iou50": 0.6938775510204082
+        },
+        "over_5s": {
+          "count": 85,
+          "recall_iou50": 0.9176470588235294
+        }
+      }
+    },
+    {
+      "match": "J03WR9",
+      "half": 1,
+      "noisy": true,
+      "model": "fusion",
+      "spell_f1": 0.5702857142857142,
+      "macro_f1": 0.8947281239310728,
+      "gt_spells": 183,
+      "predicted_spells": 167,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 49,
+          "recall_iou50": 0.30612244897959184
+        },
+        "2_to_5s": {
+          "count": 49,
+          "recall_iou50": 0.42857142857142855
+        },
+        "over_5s": {
+          "count": 85,
+          "recall_iou50": 0.8
+        }
+      }
+    },
+    {
+      "match": "J03WR9",
+      "half": 2,
+      "noisy": false,
+      "model": "fusion",
+      "spell_f1": 0.7401129943502824,
+      "macro_f1": 0.9462551194609864,
+      "gt_spells": 187,
+      "predicted_spells": 167,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 45,
+          "recall_iou50": 0.28888888888888886
+        },
+        "2_to_5s": {
+          "count": 61,
+          "recall_iou50": 0.7213114754098361
+        },
+        "over_5s": {
+          "count": 81,
+          "recall_iou50": 0.9382716049382716
+        }
+      }
+    },
+    {
+      "match": "J03WR9",
+      "half": 2,
+      "noisy": true,
+      "model": "fusion",
+      "spell_f1": 0.55,
+      "macro_f1": 0.8842290877605788,
+      "gt_spells": 187,
+      "predicted_spells": 165,
+      "recall_by_duration": {
+        "under_2s": {
+          "count": 45,
+          "recall_iou50": 0.13333333333333333
+        },
+        "2_to_5s": {
+          "count": 61,
+          "recall_iou50": 0.5081967213114754
+        },
+        "over_5s": {
+          "count": 81,
+          "recall_iou50": 0.7530864197530864
+        }
+      }
+    }
+  ]
+}

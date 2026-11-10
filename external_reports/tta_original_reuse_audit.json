@@ -1,0 +1,248 @@
+{
+  "status": "Original NN posteriors reused bit-exactly from already verified matched external component caches; transformed inference remains CPU-only",
+  "skipped": "In-flight cases may finish their own CPU prediction instead of using the primed original cache. These are separately recorded; every evaluated case still requires exact V4.1 score reproduction.",
+  "entries": [
+    {
+      "match": "J03WPY",
+      "half": 2,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\fb6c1293ecb44fda0121_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\d8095b50154fa0b4_J03WPY_1_0_11201.npz",
+      "source_sha256": "944b4b66884662e0e0980ac8b7199a410d17a7f8f1a8f87d9559919d0557f759",
+      "tta_cache_sha256": "6cc77a9238a8ba9d1be43b81247bea6683c36385c6c4bf772289f582c5553e36",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WPY",
+      "half": 2,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\a2bafede26a5222ef742_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\d8095b50154fa0b4_J03WPY_1_1_11201.npz",
+      "source_sha256": "cebff15c598583bd2734837de45cfae16e6e33e470e09f0cc4b3e78f9dd3984c",
+      "tta_cache_sha256": "8976acfea88d836a8b910216e94361e7ecbe39dca3126a5222d79afd65e864e1",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WQQ",
+      "half": 1,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\5f192514edc3dbb57f9c_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\d8095b50154fa0b4_J03WQQ_0_0_11210.npz",
+      "source_sha256": "1a1bca4a721959edc1fde7b624882843b87a812d757c516e2bc76f1522f5f917",
+      "tta_cache_sha256": "d58f22178a2823c8d4699c29008a413fa5a248817a6458789c671c295503b643",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WQQ",
+      "half": 1,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\a4302dbd8ff8fc1deb41_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\d8095b50154fa0b4_J03WQQ_0_1_11210.npz",
+      "source_sha256": "cc5cc13a92281c88629952e0221a820dadd857c58b0532a196ed78daa87b188a",
+      "tta_cache_sha256": "da1fefdaa4e0f6455d0a854beab163c170eaccd7c24923626e2ff02e0f2a2ee6",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WQQ",
+      "half": 2,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\5f1574e336fe55a6eb7c_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\d8095b50154fa0b4_J03WQQ_1_0_11211.npz",
+      "source_sha256": "3069995d3cc811fab18ebd0adf29084eb0f8c2932e11983d6924e155f8311d19",
+      "tta_cache_sha256": "61feb95c39f523a74af17e5a6e157ab88c6c4adce7bf45779793633b02ee19e0",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WQQ",
+      "half": 2,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\2bb2b8e357d122bf7f2c_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\d8095b50154fa0b4_J03WQQ_1_1_11211.npz",
+      "source_sha256": "10ccd23a3e862050804662b667ca4c15743e61a33b36f1df8492e4060327bd81",
+      "tta_cache_sha256": "aefd1615fb236eeeec4b3a417631fc65c56fd08cf224e87d64341d50da992542",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WOH",
+      "half": 1,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\f1914130dfca4bca07ae_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\266b429de45d0e87_J03WOH_0_0_11300.npz",
+      "source_sha256": "7175f1c2b7e86b7c02b9cabdf857fcd7d6d09f4098461015210feb713b6e6b49",
+      "tta_cache_sha256": "ff609f128539f3cc98f402c2e046232b06eaa5b0645823cdf395db6795679084",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WOH",
+      "half": 1,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\bf18590d9409ba09cc08_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\266b429de45d0e87_J03WOH_0_1_11300.npz",
+      "source_sha256": "4bc13d582ba985b47b0460c88f317b858b15d6209786714fb97f3ac15cb2bbba",
+      "tta_cache_sha256": "1ee1a29f7261ecd006201e4ccae6a358771a3c76e8c7963b30d9aea0e96a8011",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WOH",
+      "half": 2,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\f4a922fe041c6e59fac2_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\266b429de45d0e87_J03WOH_1_0_11301.npz",
+      "source_sha256": "29d6ca7be1493f2da96e1764f23229d3bb46ad65e857419c2128e5d29e25041e",
+      "tta_cache_sha256": "4a4de237ae5bfb9f455f3d07fed07a5aee6fffaf06cb3bfad6340996f753fe67",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WOH",
+      "half": 2,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\1e574c172238265357c7_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\266b429de45d0e87_J03WOH_1_1_11301.npz",
+      "source_sha256": "1f7df08f3fc7d92178585caa7670b7144404ab4a09f72a6a008effec81634f88",
+      "tta_cache_sha256": "299c14a280cfb918fbbfaf83e878f96bba5b8fa66129494e2b2bb78ad3ce5ab5",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WOY",
+      "half": 1,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\14815c2cdd5e1b10e4d2_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\266b429de45d0e87_J03WOY_0_0_11310.npz",
+      "source_sha256": "e6e8bb802f2b8f107f8b6820290ffd24956aa686c933c3a4dffc889e80492f86",
+      "tta_cache_sha256": "e20139a3a1d8b458b851b11fa920128aef94b026fed17b5eab987fb2991bc2ff",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WOY",
+      "half": 1,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\2bb5347801be7a5bfc2e_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\266b429de45d0e87_J03WOY_0_1_11310.npz",
+      "source_sha256": "f2ac57334ced0ee9f7d8c15d25328ca54edbc7d863b6f8a58c9057a7d5920b3b",
+      "tta_cache_sha256": "5505cc8773cc33fbb7a36aba31515bdcebbbe929403589487e3b9982a18675a9",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WOY",
+      "half": 2,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\03bd4dcbdde958077174_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\266b429de45d0e87_J03WOY_1_0_11311.npz",
+      "source_sha256": "8047616812090ec1d2caccf5196ae6d7bddc7c114da5cb4cbd31baa70dd334a5",
+      "tta_cache_sha256": "f8ecab950d56ee814adcced1724186962a88a64d7f7a6b121b595e7f434228c2",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WOY",
+      "half": 2,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\2636b9f2b27e463371f7_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\266b429de45d0e87_J03WOY_1_1_11311.npz",
+      "source_sha256": "fa02cd25be2f1c03d8c4963ec215b68200041afe8c95311c61d4458ec9944dfa",
+      "tta_cache_sha256": "e5c054e93c9703b4dd5b1ba7dc00cd25b6c3025240d04a508c8c7f0bff69089e",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WMX",
+      "half": 1,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\225fd41df46cfcdd9999_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\52bbda1af5faaf54_J03WMX_0_0_9500.npz",
+      "source_sha256": "adaede8f2f5ff1848ef3f03fafe1cce99f2eb758b5a33c2d7f9d9b7108a9cb7b",
+      "tta_cache_sha256": "7d654b4e984db109d001aae19f4032cb1445bf9b1cf9f1abc7691177ae1a5f0c",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WMX",
+      "half": 1,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\5f168f84fa02f6008927_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\52bbda1af5faaf54_J03WMX_0_1_9500.npz",
+      "source_sha256": "5c40be1ef944f5f090ab3e2cfd9cf8ab65182aa1d4300db14aa2ec4379f30872",
+      "tta_cache_sha256": "5daeaa8f95136874b9575e5822b79db3a886d29d8d15d643a2dcd84115232049",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WMX",
+      "half": 2,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\8f350713e8b62ce56c1e_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\52bbda1af5faaf54_J03WMX_1_0_9501.npz",
+      "source_sha256": "027588d18e02f899331a209ec00d9d5d20c913f4ce7cec83946154b53f73fb37",
+      "tta_cache_sha256": "05299eb2dc80a3aac17d95692452bfe1c23f0ee376f22406871d620a93b57b57",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WMX",
+      "half": 2,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\22ecc4c58178bceaa5fc_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\52bbda1af5faaf54_J03WMX_1_1_9501.npz",
+      "source_sha256": "3c05098a64fe34ac59abdfdfe61db459a23f84d7d90d97648734f407a783eabb",
+      "tta_cache_sha256": "a5e0d59faf77063e7dc35d4a0f071155ea486a36a597c94c56fe4d71e54d8101",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WN1",
+      "half": 1,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\e887519393b6a475d737_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\52bbda1af5faaf54_J03WN1_0_0_9500.npz",
+      "source_sha256": "671765db31b69f25a8cedf075ffaef270279b0fa1a552ab50ec3af6eddde47f5",
+      "tta_cache_sha256": "d5a71e0f8560770f0eb186582ba1dcf6a49f57ce7c1fde719e36eb52c975a0c4",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WN1",
+      "half": 1,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\d5cc1919c6971ab52beb_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\52bbda1af5faaf54_J03WN1_0_1_9500.npz",
+      "source_sha256": "488ebb569ae91319d2823ddd301ed14e386d08dfc552f3448316162da71fc8cb",
+      "tta_cache_sha256": "6590e9a1180e25fd10ea048322dcdefccc5f87fe156002c828818195a5207f5f",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WN1",
+      "half": 2,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\30f6ee1db9b9e671fdc4_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\52bbda1af5faaf54_J03WN1_1_0_9501.npz",
+      "source_sha256": "f65cc574d046ef73f1a575bc71b80a3fb6e8ae180e94ca441fb77da6b892af12",
+      "tta_cache_sha256": "73e9f555eeabcc72fd7a690a57cffb99f42980de630b380f90b20e507066f468",
+      "maximum_probability_difference": 0.0
+    },
+    {
+      "match": "J03WN1",
+      "half": 2,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\1c31d0788162f3ff28a5_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\52bbda1af5faaf54_J03WN1_1_1_9501.npz",
+      "source_sha256": "6e9ec59f7757f3d772e254331b5d46b3a07f2e164ac8463a7cc028e358d8aeaf",
+      "tta_cache_sha256": "cf134e8d229d2cb990616675aecd2afd647f59d8d86017f02ac59d68f1e46152",
+      "maximum_probability_difference": 0.0
+    }
+  ],
+  "cpu_recomputed": [
+    {
+      "match": "J03WPY",
+      "half": 1,
+      "noisy": false,
+      "tta_cache": "external_cache\\tta\\c798e5aea90978a3bfc4_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\d8095b50154fa0b4_J03WPY_0_0_11200.npz",
+      "source_sha256": "270264fbe4711a5edf10b22049cb92a5a71edf8edd07457634d9b152966234dd",
+      "tta_cache_sha256": "63213245a596d1aad425a8d7e2c562cb2da3c46a70e995fa43d7fd232b6390f0",
+      "maximum_probability_difference": 1.3113021850585938e-06
+    },
+    {
+      "match": "J03WPY",
+      "half": 1,
+      "noisy": true,
+      "tta_cache": "external_cache\\tta\\55292b6636ff48806ef1_original.npz",
+      "source_cache": "external_cache\\smart_fusion\\d8095b50154fa0b4_J03WPY_0_1_11200.npz",
+      "source_sha256": "a0ab521743ff625e1a179cf1d8fd42c9120d0d6c5d767d3595c7a31fdc45aa19",
+      "tta_cache_sha256": "eede87dff7d668ddfa42dc01bc45e84d9385b4c42dd3a951876719cbd29e050c",
+      "maximum_probability_difference": 0.00017261505126953125
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "status": "Descriptive overlapping symptoms on reused external validation only; no fitting, causal claims, promotion or supplied-match access",
+  "model_sha256": "342cf55066920bc9913e1d3eaa159b9cafa3d374d1f85417ad07cd3ac4adb09d",
+  "source_sha256": "9c8776b8e3715c18971c85731da969944e962c5378576d4ac0b090b28838bd6d",
+  "rows": [
+    {
+      "half": 1,
+      "noisy": false,
+      "count": 49,
+      "hits": 19,
+      "no_correct_frames": 19,
+      "less_than_half_correct": 1,
+      "majority_correct_but_spell_unmatched": 10,
+      "raw_spell_lost_after_decoding": 6,
+      "raw_component_majority_lost_by_mixing": 5,
+      "raw_mixed_majority_lost_after_decoding": 4,
+      "duration_bins": {
+        "under_half_second": {
+          "count": 13,
+          "hits": 0
+        },
+        "half_to_one_second": {
+          "count": 9,
+          "hits": 5
+        },
+        "one_to_two_seconds": {
+          "count": 27,
+          "hits": 14
+        }
+      }
+    },
+    {
+      "half": 1,
+      "noisy": true,
+      "count": 49,
+      "hits": 13,
+      "no_correct_frames": 21,
+      "less_than_half_correct": 2,
+      "majority_correct_but_spell_unmatched": 13,
+      "raw_spell_lost_after_decoding": 5,
+      "raw_component_majority_lost_by_mixing": 8,
+      "raw_mixed_majority_lost_after_decoding": 3,
+      "duration_bins": {
+        "under_half_second": {
+          "count": 13,
+          "hits": 0
+        },
+        "half_to_one_second": {
+          "count": 9,
+          "hits": 2
+        },
+        "one_to_two_seconds": {
+          "count": 27,
+          "hits": 11
+        }
+      }
+    },
+    {
+      "half": 2,
+      "noisy": false,
+      "count": 45,
+      "hits": 16,
+      "no_correct_frames": 15,
+      "less_than_half_correct": 2,
+      "majority_correct_but_spell_unmatched": 12,
+      "raw_spell_lost_after_decoding": 4,
+      "raw_component_majority_lost_by_mixing": 3,
+      "raw_mixed_majority_lost_after_decoding": 6,
+      "duration_bins": {
+        "under_half_second": {
+          "count": 10,
+          "hits": 2
+        },
+        "half_to_one_second": {
+          "count": 9,
+          "hits": 4
+        },
+        "one_to_two_seconds": {
+          "count": 26,
+          "hits": 10
+        }
+      }
+    },
+    {
+      "half": 2,
+      "noisy": true,
+      "count": 45,
+      "hits": 7,
+      "no_correct_frames": 26,
+      "less_than_half_correct": 0,
+      "majority_correct_but_spell_unmatched": 12,
+      "raw_spell_lost_after_decoding": 6,
+      "raw_component_majority_lost_by_mixing": 12,
+      "raw_mixed_majority_lost_after_decoding": 9,
+      "duration_bins": {
+        "under_half_second": {
+          "count": 10,
+          "hits": 1
+        },
+        "half_to_one_second": {
+          "count": 9,
+          "hits": 1
+        },
+        "one_to_two_seconds": {
+          "count": 26,
+          "hits": 5
+        }
+      }
+    }
+  ],
+  "aggregate": [
+    {
+      "noisy": false,
+      "count": 94,
+      "hits": 35,
+      "no_correct_frames": 34,
+      "less_than_half_correct": 3,
+      "majority_correct_but_spell_unmatched": 22,
+      "raw_spell_lost_after_decoding": 10,
+      "raw_component_majority_lost_by_mixing": 8,
+      "raw_mixed_majority_lost_after_decoding": 10,
+      "duration_bins": {
+        "under_half_second": {
+          "count": 23,
+          "hits": 2
+        },
+        "half_to_one_second": {
+          "count": 18,
+          "hits": 9
+        },
+        "one_to_two_seconds": {
+          "count": 53,
+          "hits": 24
+        }
+      }
+    },
+    {
+      "noisy": true,
+      "count": 94,
+      "hits": 20,
+      "no_correct_frames": 47,
+      "less_than_half_correct": 2,
+      "majority_correct_but_spell_unmatched": 25,
+      "raw_spell_lost_after_decoding": 11,
+      "raw_component_majority_lost_by_mixing": 20,
+      "raw_mixed_majority_lost_after_decoding": 12,
+      "duration_bins": {
+        "under_half_second": {
+          "count": 23,
+          "hits": 1
+        },
+        "half_to_one_second": {
+          "count": 18,
+          "hits": 3
+        },
+        "one_to_two_seconds": {
+          "count": 53,
+          "hits": 16
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "model_sha256": "f15e6f5127bad18151d9869a755b35450fb800d5ba065d705f2d656c9139dde9",
+  "feature_version": 2,
+  "penalty": 8,
+  "gates": {
+    "validation_overall": true,
+    "validation_short_recall": true,
+    "cross_False_overall": true,
+    "cross_False_short_recall": true,
+    "cross_True_overall": true,
+    "cross_True_short_recall": true,
+    "regression_False_overall": true,
+    "regression_True_overall": true
+  },
+  "training_matches": [
+    "J03WOH",
+    "J03WOY",
+    "J03WPY",
+    "J03WQQ"
+  ],
+  "validation_match": "J03WR9",
+  "licence": "CC BY 4.0",
+  "evidence": "Validation, whole-match cross-validation and reused-test regression; no fresh blind test",
+  "code_sha256": {
+    "possession_v2.py": "c891f81afa99543b7e96b3316bcbd28d5bcd26051d8db38b70087176aff62af3",
+    "learned_possession.py": "f6a3dd179bf2dc57b8b6fd6b270abec6ef92ae5c2ad9370205effb4441c020bc",
+    "develop_v2.py": "ad42fc227db267c8dc7283ba3360cf8920f2e7a28d458a7934ac14ea4e3fedfa",
+    "infer_learned.py": "f905a81d1a18d1fc0acd30cdd01637377282453e71ea13e3a56badbb658037b2"
+  }
+}

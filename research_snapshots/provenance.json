@@ -1,0 +1,9 @@
+{
+  "purpose": "Historical source versions retained for the paper-based experiments and later contact/role-free extensions. Restore to project-root names for source-version inspection; checkpoint run_info records the version used for each fit.",
+  "files": {
+    "paper2023_data_before_velocity_scaling.py": "ba3eaae710423c284a481f6a3a47fe38405a947dbb45bec29793b186994b206e",
+    "paper2023_model_before_instant_skip.py": "f0b16100125f8b4c5d9e61b74e6b1242c13becc7d891501b4d05a294db8eba15",
+    "train_paper2023_before_rolefree.py": "25ccbf10081fc8069d1a1323790b79321e712cf7702b71eec05dc0100ed39176",
+    "train_paper2023_before_sampler.py": "523a236efd1c23c1ac886eff3eea121a65299363291ecaca9da7277d297f75c8"
+  }
+}

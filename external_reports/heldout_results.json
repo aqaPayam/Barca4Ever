@@ -1,0 +1,313 @@
+{
+  "frozen_model_sha256": "85dc389a5019b8a04a5664034e25b32e60d20a2fe0b2efa7dbbbd5354868c2f8",
+  "rows": [
+    {
+      "match": "J03WMX",
+      "half": 1,
+      "scenario": "clean",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.4126213592233009,
+      "macro_f1": 0.7910131085447949,
+      "accuracy": 0.756703626180913,
+      "n_gt_spells": 250,
+      "n_pred_spells": 162
+    },
+    {
+      "match": "J03WMX",
+      "half": 1,
+      "scenario": "clean",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.31589242053789734,
+      "macro_f1": 0.4576381269382835,
+      "accuracy": 0.5792131017706624,
+      "n_gt_spells": 250,
+      "n_pred_spells": 159
+    },
+    {
+      "match": "J03WMX",
+      "half": 1,
+      "scenario": "clean",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.5070866141732283,
+      "macro_f1": 0.9303873319963385,
+      "accuracy": 0.9325818860666403,
+      "n_gt_spells": 250,
+      "n_pred_spells": 131
+    },
+    {
+      "match": "J03WMX",
+      "half": 1,
+      "scenario": "corrupted",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.3534090909090909,
+      "macro_f1": 0.7545879596169947,
+      "accuracy": 0.6929767494484358,
+      "n_gt_spells": 250,
+      "n_pred_spells": 102
+    },
+    {
+      "match": "J03WMX",
+      "half": 1,
+      "scenario": "corrupted",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.20675675675675675,
+      "macro_f1": 0.4581942880550662,
+      "accuracy": 0.5540957175991401,
+      "n_gt_spells": 250,
+      "n_pred_spells": 342
+    },
+    {
+      "match": "J03WMX",
+      "half": 1,
+      "scenario": "corrupted",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.3704057279236277,
+      "macro_f1": 0.8545397693702285,
+      "accuracy": 0.8625898059625502,
+      "n_gt_spells": 250,
+      "n_pred_spells": 169
+    },
+    {
+      "match": "J03WMX",
+      "half": 2,
+      "scenario": "clean",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.4148148148148148,
+      "macro_f1": 0.7405898001558332,
+      "accuracy": 0.6552438910960815,
+      "n_gt_spells": 261,
+      "n_pred_spells": 171
+    },
+    {
+      "match": "J03WMX",
+      "half": 2,
+      "scenario": "clean",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.29956709956709954,
+      "macro_f1": 0.36819704297306927,
+      "accuracy": 0.41490054345659655,
+      "n_gt_spells": 261,
+      "n_pred_spells": 201
+    },
+    {
+      "match": "J03WMX",
+      "half": 2,
+      "scenario": "clean",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.519811320754717,
+      "macro_f1": 0.8912246516746721,
+      "accuracy": 0.9170996159927717,
+      "n_gt_spells": 261,
+      "n_pred_spells": 163
+    },
+    {
+      "match": "J03WMX",
+      "half": 2,
+      "scenario": "corrupted",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.27548209366391185,
+      "macro_f1": 0.6944351773678035,
+      "accuracy": 0.660651882166917,
+      "n_gt_spells": 261,
+      "n_pred_spells": 102
+    },
+    {
+      "match": "J03WMX",
+      "half": 2,
+      "scenario": "corrupted",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.1897590361445783,
+      "macro_f1": 0.36814104354147975,
+      "accuracy": 0.3987031451387874,
+      "n_gt_spells": 261,
+      "n_pred_spells": 403
+    },
+    {
+      "match": "J03WMX",
+      "half": 2,
+      "scenario": "corrupted",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.3701357466063348,
+      "macro_f1": 0.8181380065201086,
+      "accuracy": 0.8494266466469127,
+      "n_gt_spells": 261,
+      "n_pred_spells": 181
+    },
+    {
+      "match": "J03WN1",
+      "half": 1,
+      "scenario": "clean",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.3903743315508021,
+      "macro_f1": 0.7516548774212648,
+      "accuracy": 0.6801033367971366,
+      "n_gt_spells": 227,
+      "n_pred_spells": 147
+    },
+    {
+      "match": "J03WN1",
+      "half": 1,
+      "scenario": "clean",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.30023310023310024,
+      "macro_f1": 0.3967471593941058,
+      "accuracy": 0.46886906823692415,
+      "n_gt_spells": 227,
+      "n_pred_spells": 202
+    },
+    {
+      "match": "J03WN1",
+      "half": 1,
+      "scenario": "clean",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.5260273972602739,
+      "macro_f1": 0.9086496170595685,
+      "accuracy": 0.924907631913174,
+      "n_gt_spells": 227,
+      "n_pred_spells": 138
+    },
+    {
+      "match": "J03WN1",
+      "half": 1,
+      "scenario": "corrupted",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.2744336569579288,
+      "macro_f1": 0.707400376274628,
+      "accuracy": 0.6480198591386676,
+      "n_gt_spells": 227,
+      "n_pred_spells": 82
+    },
+    {
+      "match": "J03WN1",
+      "half": 1,
+      "scenario": "corrupted",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.2287719298245614,
+      "macro_f1": 0.4136891163098459,
+      "accuracy": 0.46510218219605126,
+      "n_gt_spells": 227,
+      "n_pred_spells": 343
+    },
+    {
+      "match": "J03WN1",
+      "half": 1,
+      "scenario": "corrupted",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.3476923076923077,
+      "macro_f1": 0.8202242202748135,
+      "accuracy": 0.841300080822076,
+      "n_gt_spells": 227,
+      "n_pred_spells": 163
+    },
+    {
+      "match": "J03WN1",
+      "half": 2,
+      "scenario": "clean",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.3412026726057907,
+      "macro_f1": 0.6045743513702256,
+      "accuracy": 0.5158081164473594,
+      "n_gt_spells": 273,
+      "n_pred_spells": 176
+    },
+    {
+      "match": "J03WN1",
+      "half": 2,
+      "scenario": "clean",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.2698224852071006,
+      "macro_f1": 0.2926561505732725,
+      "accuracy": 0.310184993012605,
+      "n_gt_spells": 273,
+      "n_pred_spells": 234
+    },
+    {
+      "match": "J03WN1",
+      "half": 2,
+      "scenario": "clean",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.5045871559633028,
+      "macro_f1": 0.853384632351449,
+      "accuracy": 0.9122217148866105,
+      "n_gt_spells": 273,
+      "n_pred_spells": 163
+    },
+    {
+      "match": "J03WN1",
+      "half": 2,
+      "scenario": "corrupted",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.2,
+      "macro_f1": 0.5786304871747203,
+      "accuracy": 0.568912318569867,
+      "n_gt_spells": 273,
+      "n_pred_spells": 89
+    },
+    {
+      "match": "J03WN1",
+      "half": 2,
+      "scenario": "corrupted",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.18165938864628822,
+      "macro_f1": 0.2948556974417752,
+      "accuracy": 0.30231206674691796,
+      "n_gt_spells": 273,
+      "n_pred_spells": 414
+    },
+    {
+      "match": "J03WN1",
+      "half": 2,
+      "scenario": "corrupted",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.3707093821510297,
+      "macro_f1": 0.7682416383774041,
+      "accuracy": 0.8456961797628436,
+      "n_gt_spells": 273,
+      "n_pred_spells": 164
+    }
+  ],
+  "summary": [
+    {
+      "scenario": "clean",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.38975329454867713,
+      "macro_f1": 0.7219580343730296
+    },
+    {
+      "scenario": "clean",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.2963787763862994,
+      "macro_f1": 0.37880961996968276
+    },
+    {
+      "scenario": "clean",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.5143781220378805,
+      "macro_f1": 0.8959115582705071
+    },
+    {
+      "scenario": "corrupted",
+      "model": "prototype_v0.1",
+      "spell_f1_mean": 0.2758312103827329,
+      "macro_f1": 0.6837635001085367
+    },
+    {
+      "scenario": "corrupted",
+      "model": "published_nearest_smooth50",
+      "spell_f1_mean": 0.20173677784304617,
+      "macro_f1": 0.38372003633704177
+    },
+    {
+      "scenario": "corrupted",
+      "model": "learned_external_v1",
+      "spell_f1_mean": 0.364735791093325,
+      "macro_f1": 0.8152859086356387
+    }
+  ],
+  "caveats": [
+    "Only two independent held-out matches",
+    "DFL labels differ from Metrica definitions",
+    "Synthetic noise is not actual challenge tracking noise",
+    "No competition score predicted"
+  ]
+}

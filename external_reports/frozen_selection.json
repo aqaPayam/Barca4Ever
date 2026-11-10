@@ -1,0 +1,88 @@
+{
+  "model_sha256": "85dc389a5019b8a04a5664034e25b32e60d20a2fe0b2efa7dbbbd5354868c2f8",
+  "splits": {
+    "train": [
+      "J03WOH",
+      "J03WOY",
+      "J03WPY",
+      "J03WQQ"
+    ],
+    "validation": [
+      "J03WR9"
+    ],
+    "test": [
+      "J03WMX",
+      "J03WN1"
+    ]
+  },
+  "validation_trials": [
+    {
+      "penalty": 0,
+      "spell_f1_mean": 0.10627395558338283,
+      "macro_f1": 0.8450533939451286
+    },
+    {
+      "penalty": 1,
+      "spell_f1_mean": 0.32762825364499004,
+      "macro_f1": 0.8568638205611219
+    },
+    {
+      "penalty": 2,
+      "spell_f1_mean": 0.3601057539435669,
+      "macro_f1": 0.8578020343258519
+    },
+    {
+      "penalty": 4,
+      "spell_f1_mean": 0.4116811169115552,
+      "macro_f1": 0.862232788093068
+    },
+    {
+      "penalty": 8,
+      "spell_f1_mean": 0.44767430863917645,
+      "macro_f1": 0.8674432971400416
+    },
+    {
+      "penalty": 16,
+      "spell_f1_mean": 0.4615101637359347,
+      "macro_f1": 0.8760539529016274
+    },
+    {
+      "penalty": 32,
+      "spell_f1_mean": 0.45388949983985527,
+      "macro_f1": 0.88031018567256
+    },
+    {
+      "penalty": 64,
+      "spell_f1_mean": 0.432221979343356,
+      "macro_f1": 0.8842755902209926
+    },
+    {
+      "penalty": 128,
+      "spell_f1_mean": 0.3923358175184868,
+      "macro_f1": 0.8821105978011772
+    }
+  ],
+  "selected": {
+    "penalty": 16,
+    "spell_f1_mean": 0.4615101637359347,
+    "macro_f1": 0.8760539529016274
+  },
+  "test_policy": "No fit or parameter changes after reading held-out results",
+  "label_provenance": "Sportec/DFL published BallStatus and BallPossession fields",
+  "feature_exclusions": [
+    "BallStatus",
+    "BallPossession",
+    "events",
+    "frame ids",
+    "clock",
+    "identity"
+  ],
+  "source_manifest_sha256": "a460b521d4ee1905fa27f11315487c8cb9ff0eecf8ef1490009844d0789d8dcf",
+  "code_sha256": {
+    "learned_possession.py": "f6a3dd179bf2dc57b8b6fd6b270abec6ef92ae5c2ad9370205effb4441c020bc",
+    "external_idsse.py": "3a4228b6395b36f97f3c47e7f7702f82933673ceb415c544c5d7763b681fa14f",
+    "train_external.py": "77960c7914cccb4b68a9e1b0ecf32653b716b4587dc9d67fb5b2ca07595844f1",
+    "select_temporal.py": "836d70480cf8e46c432c028423862c307d50aa7d19adb26fc8d82cf69ed17752"
+  },
+  "selection_note": "Extended validation grid to 32/64/128 after initial optimum hit grid edge; no test results viewed"
+}
