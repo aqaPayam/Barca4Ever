@@ -1,4 +1,4 @@
-# Paper-driven multi-agent model improvement
+# V5 development experiments
 
 V5 selects the composite of observability-aware 16 Hz contact emissions and
 directed transition boundaries. It is the highest-WR9 candidate that passed
@@ -6,19 +6,20 @@ all declared clean/noisy whole-match CV and reused-test regression checks.
 The selection rule was recorded in MULTIAGENT_SELECTION_PROTOCOL.md. V4.1
 is preserved as a fallback. Saved-model software checks are recorded separately.
 
-## What the agents contributed
+## Changes investigated
 
-- Research: audited Borghesi (2023), Peral/Ferraz (2025), ELASTIC (2026) and PathCRF (2026);
-  translated contact physics into tested soft features. PathCRF released
-  weights overlap our evaluation matches and were not used.
-- Audit: verified labels, timing and preprocessing; found lost raw ball
-  observability, rounded 16 Hz velocity approximations and repeated training
-  references. Verified new inputs and exact zero-padded initialization.
-- Implementation: fitted directed and physics boundary models, evaluated
-  symmetry averaging and a protected missing-input adapter; built and
-  tested the new production producer.
-- Integration: fitted the new neural inputs, selected and confirmed the
-  composite and prepared the reproducible release.
+- Observation confidence. Raw ball visibility and gap timing were lost after
+  interpolation. V5 retains them as three additional input channels.
+- Neural timing and training. Source-index differences replace rounded 16 Hz
+  velocity intervals, and each epoch draws fresh training references. Added
+  inputs begin with zero weights in the shared initializer.
+- Transition evidence. Directed and physics boundary models, symmetry averaging
+  and a missing-input adapter were compared with the existing pipeline.
+- Contact-inspired alternatives. Borghesi (2023), Peral/Ferraz (2025), ELASTIC
+  (2026) and PathCRF (2026) informed the designs. PathCRF's released weights
+  overlap our evaluation matches and were excluded from these experiments.
+- Selection. The combined observation-aware neural inputs and directed
+  transitions passed the declared checks and were selected for V5.
 
 Primary links and detailed caveats: RESEARCH_AGENT_METHODS.md and
 PAPER_RESEARCH_NOTES_2026_11_06.md. These are original adaptations, not
@@ -77,7 +78,8 @@ together and each learned fold component excludes the evaluated matches.
 Scores use the exact organizer scorer and original corruption seeds. All
 V4.1 controls reproduce exactly. Clean/noisy scenarios share labels. Small
 gains do not establish statistical significance or professional superiority.
-No competition inputs, video, labels or prediction quality were used.
+These experiments use external data for fitting, selection and quality evaluation.
+The supplied tracking is used separately for local inference.
 
 One damaged external parsed cache was rebuilt from checksum-verified
 original XML. Rebuilt clean/noisy geometry and object features match the

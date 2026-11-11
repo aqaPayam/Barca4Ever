@@ -4,7 +4,7 @@ This guide points to the selected submission model, its evidence and the command
 
 ## Start with the report
 
-The four-page technical report covers the task and pipeline, model and training recipe, external evidence and limitations, then reproduction and verification. [PDF report](submission/Barca4Ever.pdf) · [Markdown report](Barca4Ever.md)
+The four-page paper defines the task and metric, explains the method, then presents the external experiments, limitations and reproduction steps. It is compiled from the included LaTeX source. [PDF](submission/Barca4Ever.pdf) · [LaTeX source](submission/Barca4Ever.tex) · [Browser-readable version](Barca4Ever.md)
 
 ## Follow the active inference path
 
@@ -35,3 +35,13 @@ The bundle contains `tactical/BAR-ATH_tactical_atd.xml` and `tactical/BAR-ATH_ta
 Software checks establish indexing, execution and file validity. The football-quality tables use licensed IDSSE labels across previously inspected development matches. Noisy short possessions remain difficult. The report records those limitations alongside the measured gains.
 
 The public repository retains earlier versions and rejected research trials for traceability. The regeneration command explicitly selects V5. Keep organizer data, generated predictions and local logs outside the public package.
+
+## Build the paper
+
+The current PDF was compiled with Tectonic 0.17.0. From the repository root, run
+
+```text
+tectonic --untrusted --outdir submission submission/Barca4Ever.tex
+```
+
+The first run may fetch standard TeX resources. The LaTeX source contains the figure, equations, tables and references.

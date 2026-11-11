@@ -1,145 +1,92 @@
 # Barca4Ever
 
-### Team possession estimation for More Than A Hack 2027
+Team possession estimation from automatic football tracking. V5 combines a geometry classifier and a trajectory network, then uses directed transition scores to decode a possession sequence. It takes player/ball positions and team assignments and writes one label per tactical-video frame.
 
-![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
-![PyTorch CPU](https://img.shields.io/badge/PyTorch-2.9.1_CPU-EE4C2C?logo=pytorch&logoColor=white)
-![Submission model V5](https://img.shields.io/badge/Submission_model-V5-A50044)
+**V5 · offline CPU inference · external development results · competition evaluation pending**
 
-An offline model that turns automatic player and ball tracking into a team possession label for every tactical-video frame.
+[Report (PDF)](submission/Barca4Ever.pdf) · [LaTeX source](submission/Barca4Ever.tex) · [Model guide](V5_MODEL_GUIDE.md) · [Development experiments](MULTIAGENT_RESULTS.md)
 
-| Input | Model | Output |
-| --- | --- | --- |
-| Player and ball XY positions, team assignments | V5 contact network, geometry classifier and directed transition decoder | A `frame,label` CSV with 199,319 rows |
+## Run V5
 
-[Technical report PDF](submission/Barca4Ever.pdf) · [Reviewer guide](REVIEWER_GUIDE.md) · [Report source](Barca4Ever.md) · [V5 model guide](V5_MODEL_GUIDE.md)
-
-## Reproduce the submission
-
-Use **Python 3.12** and the organizer's local data bundle. Run the commands from the repository root. The trained V5 artifact is included in this repository. CPU inference uses four threads.
+Use Python 3.12. Run from the repository root with the organizer's data bundle stored locally.
 
 ```text
 python -m pip install -r requirements-contact.txt
-python refined_infer.py --model models/external_v5.joblib --data-dir "/path/to/organizer/bundle" --out local_outputs/Barca4Ever.csv
+python refined_infer.py --model models/external_v5.joblib --data-dir "/path/to/bundle" --out local_outputs/Barca4Ever.csv
 python evaluation/validate_submission.py local_outputs/Barca4Ever.csv
 ```
 
-The data directory must contain these two files.
+The bundle must contain `tactical/BAR-ATH_tactical_atd.xml` and `tactical/BAR-ATH_tactical_atd.txt`. The trained model is included. CPU inference uses four threads.
 
-```text
-bundle/
-└── tactical/
-    ├── BAR-ATH_tactical_atd.xml
-    └── BAR-ATH_tactical_atd.txt
-```
-
-On Windows, the launcher verifies the model checksum and runs inference and format validation together.
+On Windows, the launcher also verifies the model checksum and runs format validation.
 
 ```powershell
 .\Run-Barca4Ever.ps1 -DataRoot "C:\path\to\bundle" -Output "local_outputs\Barca4Ever.csv"
 ```
 
-The output manifest records the model and CSV hashes. Keep the generated CSV and intermediate files local, and upload the possession file through the organizer's submission form.
+The output has 199,319 indexed rows. Labels are `H` for home possession, `A` for away possession, `D` for dead ball and `X` for abstention during long complete player-tracking outages. The local manifest records model and output hashes.
 
-| Label | Meaning |
-| --- | --- |
-| `H` | Home team in possession |
-| `A` | Away team in possession |
-| `D` | Dead ball |
-| `X` | Abstention during a long complete player-tracking outage |
-
-## How V5 works
+## Method
 
 ```mermaid
 flowchart LR
-    A[Automatic tracking] --> B[Geometry classifier]
-    A --> C[Contact network]
-    B --> D[Possession probabilities]
-    C --> D
-    A --> E[Directed transition detector]
-    D --> F[Sequence decoding]
-    E --> F
-    F --> G[Frame labels]
-    classDef input fill:#102542,stroke:#102542,color:#fff
-    classDef model fill:#F3F5F7,stroke:#BCC5D0,color:#172B4D
-    classDef output fill:#A50044,stroke:#A50044,color:#fff
-    class A input
-    class B,C,D,E,F model
-    class G output
+    T[Tracking] --> G[Geometry classifier]
+    T --> N[Trajectory network]
+    G --> P[Possession probabilities]
+    N --> P
+    T --> B[Directed transitions]
+    P --> D[Sequence decoder]
+    B --> D
+    D --> Y[Frame labels]
 ```
 
-- **Geometry** measures proximity, motion and visibility for both teams.
-- **Contact evidence** combines shared trajectory encoding, ball-query attention and raw observation confidence. Missing positions retain explicit visibility information.
-- **Directed transitions** distinguish the six possible changes between home possession, away possession and dead ball.
-- **Sequence decoding** combines these signals into possession spells. Source record 1 maps to output frame 0, and long player-tracking outages separate inference blocks.
+Geometry provides spatial evidence, the network adds local trajectory and observation history, and directed transitions help place changes. The trajectory branch is inspired by contact modeling but is trained on provider possession and ball-status labels. It has no touch-level supervision. Its future context makes it an offline method. [Method and equations](submission/Barca4Ever.pdf)
 
-The contact network draws on Borghesi et al. (2023), with our own implementation, external training and declared adaptations. The model guide documents the architecture, timing, inputs and selection procedure. [Paper](https://doi.org/10.1016/j.eswa.2023.119780) · [Implementation guide](V5_MODEL_GUIDE.md)
+## Results
 
-## External development evidence
-
-The table uses the organizer's spellF1 metric on licensed IDSSE data. Each evaluated whole-match fold is excluded from every learned component's fitting.
+These comparisons use licensed IDSSE data and the organizer's spellF1 implementation. SpellF1 matches same-team possession intervals and averages F1 over five temporal IoU thresholds from 0.3 to 0.7.
 
 | Comparison | Tracking | V4.1 spellF1 | V5 spellF1 |
 | --- | --- | --- | --- |
-| Whole-match cross-validation | Clean | 0.7105 | **0.7133** |
-| Whole-match cross-validation | Simulated noise | 0.5329 | **0.5344** |
-| Reused regression matches | Clean | 0.6808 | **0.6847** |
-| Reused regression matches | Simulated noise | 0.4968 | **0.5140** |
+| Whole-match cross-validation | Clean | 0.7105 | 0.7133 |
+| Whole-match cross-validation | Simulated noise | 0.5329 | 0.5344 |
+| Reused regression matches | Clean | 0.6808 | 0.6847 |
+| Reused regression matches | Simulated noise | 0.4968 | 0.5140 |
 
-All seven matches have appeared in development. These repeated comparisons support model selection, with limited independent evidence. Competition performance awaits the organizer's private evaluation. Short-possession counts, rejected candidates and full limitations are recorded in the technical report and development results. [Technical report](Barca4Ever.md) · [Comparison history](MULTIAGENT_RESULTS.md)
+All seven matches have appeared in development. Evaluated matches are excluded from each fold's fitting, but the collection has been inspected repeatedly. The noisy cross-validation gain is small, and V5 recovers only **80/463 possessions shorter than two seconds** in that setting. The report gives the full split, short counts and limitations. [Report](submission/Barca4Ever.pdf) · [Experiment record](MULTIAGENT_RESULTS.md)
 
-## Verification
+## Where to look
 
-The November 11 release passed **85 synthetic tests** and a **199,319-frame synthetic CPU run** through the Windows launcher, V5 inference and the official format validator. Checks cover time alignment, actor grouping, missing observations, directed decoding and launcher paths. These checks establish software behavior and file validity. [Software verification evidence](external_reports/v5_software_verification_2026_11_11.json)
+| Purpose | File |
+| --- | --- |
+| Start a review | [REVIEWER_GUIDE.md](REVIEWER_GUIDE.md) |
+| Run the selected model | [refined_infer.py](refined_infer.py) |
+| Inspect artifact and settings | [V5 artifact metadata](models/external_v5.joblib.metadata.json) |
+| Reproduce training or verification | [V5_MODEL_GUIDE.md](V5_MODEL_GUIDE.md) |
+| Read the report in the browser | [Barca4Ever.md](Barca4Ever.md) |
 
-Run the synthetic unit suite after installing the pinned dependencies.
+Earlier models and rejected trials are kept in the experiment history. The command above selects V5 explicitly.
+
+## Checks and report build
 
 ```text
 python -m unittest discover -s tests -v
 ```
 
-For a full synthetic integration check, use fresh output locations.
+The November 11 release passed 85 synthetic tests and a full-length generated-data inference/format check. These checks establish software behavior and file validity. The possession-quality evidence is the external result table above. [Software check summary](external_reports/v5_software_verification_2026_11_11.json)
+
+The PDF is compiled from the included LaTeX source with Tectonic 0.17.0.
 
 ```text
-python check_refined_pipeline.py --model models/external_v5.joblib --out local_outputs/review_pipeline.json --bundle local_outputs/review_synthetic_bundle
+tectonic --untrusted --outdir submission submission/Barca4Ever.tex
 ```
 
-<details>
-<summary>External-data parity and training reproduction</summary>
+The first build may fetch standard TeX resources. [Tectonic](https://tectonic-typesetting.github.io/en-US/install.html)
 
-The engine parity check requires the licensed IDSSE files and prepared external caches described in the V5 model guide.
+## Data and license
 
-```text
-python check_refined_engine.py --model models/external_v5.joblib --out local_outputs/review_engine.json
-```
+The deployed model was trained on IDSSE, published by Bassek, Rein, Weber and Memmert (2025), with original data from DFL / Sportec Solutions, under CC BY 4.0. Changes include parsing, features, simulated corruption, model training and decoding. Preserve this attribution with trained artifacts. [Dataset](https://doi.org/10.6084/m9.figshare.28196177) · [Data paper](https://doi.org/10.1038/s41597-025-04505-y) · [Data provenance](EXTERNAL_DATA.md)
 
-The checkers preserve existing reports and fixtures. Choose new output names when repeating a check.
+The competition starter and evaluation utilities are covered by the included MIT license. Keep organizer assets, predictions and local logs outside the public package, and follow the organizers' prohibition on uploading their data to AI services. [Code license](LICENSE) · [Competition repository](https://github.com/metrica-sports/more-than-a-hack-2027)
 
-For training reproduction, follow the V5 model guide in a fresh experiment directory. Historical reports retain their original test counts and source hashes. [Training and evaluation guide](V5_MODEL_GUIDE.md)
-
-</details>
-
-## Repository guide
-
-| File | Purpose |
-| --- | --- |
-| [submission/Barca4Ever.pdf](submission/Barca4Ever.pdf) | Four-page V5 technical report for submission |
-| [Barca4Ever.md](Barca4Ever.md) | Editable report source |
-| [REVIEWER_GUIDE.md](REVIEWER_GUIDE.md) | Review questions mapped to code and evidence |
-| [refined_infer.py](refined_infer.py) | Active V5 inference entry point |
-| [Run-Barca4Ever.ps1](Run-Barca4Ever.ps1) | Windows launcher and format check |
-| [models/external_v5.joblib](models/external_v5.joblib) | Trained submission artifact |
-| [requirements-contact.txt](requirements-contact.txt) | Pinned inference dependencies |
-| [V5_MODEL_GUIDE.md](V5_MODEL_GUIDE.md) | Architecture, timing and reproduction details |
-| [MULTIAGENT_RESULTS.md](MULTIAGENT_RESULTS.md) | Matched comparisons and failed experiments |
-| [tests/](tests/) | Synthetic software checks |
-
-Earlier models and research evidence remain available for traceability. The commands above explicitly select V5.
-
-## Data use and attribution
-
-Training uses **IDSSE**, published by Bassek, Rein, Weber and Memmert (2025), with original data from **DFL / Sportec Solutions**, under **CC BY 4.0**. Changes include parsing, geometry features, simulated corruption, model training and temporal decoding. Preserve this attribution with the trained artifacts. [Dataset](https://doi.org/10.6084/m9.figshare.28196177) · [Data paper](https://doi.org/10.1038/s41597-025-04505-y) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-
-The organizer's match assets, predictions and intermediate files stay local and are excluded from the public package. The organizers prohibit uploading their data or extracts to hosted AI services.
-
-The competition starter code and evaluation utilities come from Metrica Sports' More Than A Hack 2027 repository under its MIT license. Team modifications and external-data provenance are described in the technical report. [Competition repository](https://github.com/metrica-sports/more-than-a-hack-2027) · [Code license](LICENSE)
+This project used AI assistance for coding, research and review.

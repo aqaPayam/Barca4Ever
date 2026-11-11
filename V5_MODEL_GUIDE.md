@@ -100,20 +100,24 @@ the wrapper's explicit -Model models/external_v4_1.joblib option.
 
 ## Software checks and research reproduction
 
-82 synthetic/unit tests passed. The saved production engine exactly reproduced
+The original V5 check passed 82 synthetic/unit tests. The November 11 release
+adds three launcher regressions, for 85 passing tests. The saved production engine exactly reproduced
 spell F1, macro F1 and short counts in four external CPU comparisons. A generated
 199,319-row ATD fixture passed actual CLI inference and the official validator.
 These software checks do not establish possession quality on the supplied match.
 
 ```text
 python -m unittest discover -s tests -v
-python check_refined_engine.py --model models/external_v5.joblib
-python check_refined_pipeline.py --model models/external_v5.joblib
+python check_refined_engine.py --model models/external_v5.joblib --out local_outputs/review_engine.json
+python check_refined_pipeline.py --model models/external_v5.joblib --out local_outputs/review_pipeline.json --bundle local_outputs/review_synthetic_bundle
 ```
 
 Reports: external_reports/refined_production_check.json and
 external_reports/refined_pipeline_check.json. Both record unchanged model/source
 hashes. The pipeline checker uses only generated observations under local_outputs.
+The engine checker requires the licensed IDSSE files and prepared external caches.
+Use fresh output and bundle paths when repeating either checker, since existing
+evidence is preserved.
 
 For training reproduction, use a separate fresh experiment directory and retain
 the original evidence. First follow V4_MODEL_GUIDE.md for licensed data, base
