@@ -10,6 +10,10 @@ if (-not $Python) {
     $bundledPython = Join-Path $env:USERPROFILE '.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe'
     $Python = if (Test-Path -LiteralPath $bundledPython) { $bundledPython } else { 'python' }
 }
+$DataRoot = (Resolve-Path -LiteralPath $DataRoot).ProviderPath
+if (Test-Path -LiteralPath $Python -PathType Leaf) {
+    $Python = (Resolve-Path -LiteralPath $Python).ProviderPath
+}
 foreach ($name in @('BAR-ATH_tactical_atd.xml', 'BAR-ATH_tactical_atd.txt')) {
     if (-not (Test-Path -LiteralPath (Join-Path $DataRoot "tactical\$name"))) {
         throw "Missing tactical tracking file: $name. Extract the supplied folders under the data root first."

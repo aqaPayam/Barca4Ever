@@ -12,6 +12,7 @@ FILES = [
     "external_reports/frozen_selection.json", "external_reports/heldout_results.json",
     "evaluation/possession_metrics.py", "evaluation/validate_submission.py",
     "tests/test_barca4ever.py", "tests/test_learned.py", "tests/test_external_adapter.py",
+    "tests/test_run_wrapper.py",
     "possession_v2.py", "develop_v2.py", "crosscheck_v2.py", "report_v2.py", "promote_v2.py",
     "V2_MODEL_GUIDE.md", "V2_RESULTS.md", "tests/test_v2.py",
     "models/external_v2.joblib", "models/external_v2.joblib.metadata.json",
