@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "scope": "Generated 199319-frame synthetic tracking only",
+  "unit_tests": 85,
+  "wrapper_regressions": [
+    "absolute data path",
+    "caller-relative data path",
+    "caller-relative interpreter"
+  ],
+  "pipeline_cases": [
+    "single-frame ball gap",
+    "two-second ball gap",
+    "longer ball gap",
+    "long ball outage",
+    "one team missing",
+    "all-player outage"
+  ],
+  "pipeline_exit_code": 0,
+  "rows": 199319,
+  "frame_order_verified": true,
+  "long_player_outage_isolated": true,
+  "wrapper_sha256": "1b3aa7d8a3d1926766e7f97040eb6b1479fa20063ff6d5eb6e2dad70ff4f955e",
+  "regression_test_sha256": "d47b5c5c614705c3ab44d1c5830e73fb237d5ff0e88ace2adf331163a440ff2a",
+  "pipeline_device": "cpu",
+  "torch_version": "2.9.1+cpu",
+  "model": "V5",
+  "verification_date": "2026-11-11",
+  "purpose": "Synthetic software verification and format validation"
+}

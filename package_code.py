@@ -4,6 +4,8 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parent
 FILES = [
+    "REVIEWER_GUIDE.md", "submission/Barca4Ever.pdf",
+    "external_reports/v5_software_verification_2026_11_11.json",
     ".gitignore", "LICENSE", "barca4ever.py", "learned_possession.py", "infer_learned.py",
     "games.py", "train_external.py", "select_temporal.py", "external_idsse.py",
     "download_external.py", "smoke_model.py", "write_external_report.py",

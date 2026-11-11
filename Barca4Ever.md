@@ -1,133 +1,116 @@
-# Barca4Ever - Initial Challenge technical report (V5)
+# Barca4Ever
 
-## Approach and inputs
+## 1. Task and solution
 
-We estimate home possession H, away possession A and dead ball D from
-tactical player/ball XY tracking and team assignments. Long complete player
-tracking outages of at least 10 seconds receive X and split inference blocks.
-All fitting, hyperparameter selection and quality evaluation use licensed
-external data only. The supplied match is used solely for local inference.
+### Initial Challenge technical report - V5
 
-The unchanged strict ATD loader maps slots to teams, converts normalized
-XY to pitch-centred metres, and maps ATD record 1 to output frame 0. It
-rejects missing, duplicate/reordered/malformed rows and inconsistent slot
-counts. No player name, match ID, event outcome, clock or possession label
-enters a feature. Video, Smart Tagging, broadcast tracking and homography
-are not used. XY alone cannot identify every whistle or aerial contact.
+Barca4Ever estimates home possession, away possession and dead ball for every frame of the supplied tactical recording. V5 combines a geometry classifier, a neural contact model and a directed transition detector. CPU inference produces the 199,319-row prediction CSV.
 
-## Possession probabilities
+| Item | Specification |
+| --- | --- |
+| Input | Tactical player and ball XY positions, plus team assignments |
+| Active model | models/external_v5.joblib |
+| Runtime | Python 3.12, pinned dependencies, CPU with four threads |
+| Output | frame,label CSV with frames 0 through 199318 |
 
-The geometric branch is the preserved V2 histogram gradient boosting
-classifier: 59 geometry/motion/visibility inputs, 200 iterations, 23 leaves,
-learning rate 0.07, L2=3, minleaf 60. Its probabilities are averaged equally
-with a contact-network branch extending Borghesi et al. (2023),
-https://doi.org/10.1016/j.eswa.2023.119780. Original author weights and
-confidential data were unavailable; this is an independently trained
-adaptation with declared assumptions, not their reported model score.
+### From tracking to possession spells
 
-The shared per-object trajectory TCN has width 64, a 1x1 stem and six causal
-kernel 2 blocks with dilations 1/2/4/8/16/32, dropout 0.1 and batch normalization.
-Separate ball-query attention and ELU 64/32 FFNs predict dead probability
-and conditional home probability. Home loss is zero on dead labels.
-Relative ball geometry/motion, a target-frame MLP and learned distance-biased
-attention add direct contact evidence. Missing objects are masked; every
-observed tracking actor is retained in padded groups, without a 36-object cap.
+```mermaid
+flowchart LR
+    A[Automatic tracking] --> B[Geometry classifier]
+    A --> C[Contact network]
+    B --> D[Possession probabilities]
+    C --> D
+    A --> E[Directed transitions]
+    D --> F[Sequence decoding]
+    E --> F
+    F --> G[Frame labels]
+```
 
-V5 has 20 input channels. The original 17 are recomputed with source-rate
-short-gap interpolation and velocities divided by actual elapsed source
-time, correcting rounded 16 Hz interval variation. Three extra channels
-retain raw ball visibility and time since/until raw observation, capped
-at 10 seconds and scaled by 10. Filled geometry remains separate from raw
-visibility. Keeper roles are always zero; player role metadata is unnecessary.
+Geometry supplies proximity, movement and visibility evidence. The contact network supplies trajectory and ball-relative evidence. Directed transitions tell the decoder which changes between home, away and dead ball are supported at each frame.
 
-Neural inputs use 16 Hz, 64 samples and target 47 (48th element), about 4 seconds
-of trajectory with 1 second of future trajectory. Gap-age features may use
-up to 10 seconds of future observation evidence, so this is offline inference.
-The native 25 Hz candidate was evaluated and rejected on external validation.
-Marginals are interpolated to every 25 Hz frame; joint probabilities are
-[(1-dead)*home,(1-dead)*(1-home),dead].
+### Inputs and possession handling
 
-## Directed transition decoding
+The strict loader converts normalized XY into pitch-centred metres and maps source record 1 to output frame 0. It rejects missing, duplicate, reordered or malformed records and inconsistent slot counts. Player names, match identifiers, clocks and label fields are excluded from features.
 
-A new classifier predicts background plus six ordered transitions:
-H->A,H->D,A->H,A->D,D->H,D->A. It uses 293 label-free inputs: 59 base
-features plus before/after/signed-difference context for 26 selected features
-at +/-2, 6, 12 frames. Histogram boosting uses 100 iterations, 11 leaves,
-learning rate 0.08, L2=5, minleaf 80, seed 20261116. Targets are nearest external
-changes expanded by two frames, earlier change breaking ties. Fitting
-samples every fifth valid frame; positive targets have weight 20.
+| Label | Meaning and handling |
+| --- | --- |
+| H / A | Home or away possession, learned from external provider labels |
+| D | Dead ball, learned from external ball-status labels |
+| X | Abstention during a complete player-tracking outage of at least 10 seconds |
 
-Viterbi maximizes summed log possession probability minus switch cost
-16/(1+8*b[t,previous,next]). Unlike V4.1, each directed score lowers only
-its corresponding switch cost. Scores are uncalibrated because positives
-are weighted. WR9 selected pure directed evidence (alpha 1) for the final
-composite. The old destination detector is retained in the artifact for
-reproduction but contributes zero at this alpha. This is an original
-paper-informed boundary design, not a reproduction of ASRF or ELASTIC.
+Long player outages split inference blocks. Internal ball gaps up to two seconds may be interpolated between observed endpoints. Longer gaps retain missingness. Raw observation confidence is preserved alongside filled geometry. Loose balls, deflections and restarts are represented through external H/A/D labels and directed changes.
 
-Internal ball gaps up to 2 seconds may be interpolated without extrapolation;
-longer gaps stay missing. Missing ball does not automatically mean dead.
-Loose balls, deflections and restarts are learned through external H/A/D
-labels and directed changes; there is no separate loose-ball class or
-manually selected restart interval from the supplied game.
+V5 uses tactical XY tracking. Video, Smart Tagging, broadcast tracking and homography were excluded from this implementation. XY alone cannot resolve every whistle, aerial touch or ambiguous contact.
 
-## External fitting and selection
+## 2. Model and training recipe
 
-IDSSE only: DFL/Sportec data, Bassek et al., Scientific Data 12, 195 (2025),
-https://doi.org/10.1038/s41597-025-04505-y. Deposit:
-https://doi.org/10.6084/m9.figshare.28196177, CC BY 4.0,
-https://creativecommons.org/licenses/by/4.0/. Preserve this attribution
-with the trained artifact. BallStatus 0 maps to D; live BallPossession 1/2
-maps to H/A; unknown maps to X. Labels are isolated from feature inputs.
+### Possession probabilities
 
-Base fit: J03WOH/J03WOY/J03WPY/J03WQQ; validation: J03WR9; original
-held-out games J03WMX/J03WN1 are now explicitly reused regression. All seven
-have appeared in development. Whole-match CV fits WOH/WOY and evaluates
-WPY/WQQ, then reverses; both halves stay together. Every neural initializer,
-fine-tune, tree and directed detector excludes its evaluated fold matches.
+A 59-feature histogram gradient boosting model supplies geometry probabilities. Its output is averaged equally with a neural contact branch drawing on Borghesi et al. (2023). This is our independently trained implementation with declared adaptations. The original authors' weights and confidential data were unavailable. [1]
 
-V5 initializes from the corresponding frozen role-free checkpoint. Its
-new input columns are zero-padded initially. It fine-tunes two epochs of
-100k windows, batch 256, Adam 1e-4/cosine to 3e-5, seed 20261116. Each epoch
-draws new references: 75% eligible frames and 25% uniform team spells. Loss
-weights are clip(sqrt(250/duration_frames),0.5,4). Clean/noisy observations
-and team swaps are included. Label-independent corruption reuses the
-original jitter, 5% player drops and 15-84-frame ball gaps. Synthetic noise
-does not reproduce all automatic-tracking errors or identity switches.
+| Component | Selected configuration |
+| --- | --- |
+| Geometry classifier | 200 iterations, 23 leaves, learning rate 0.07, L2 3, minimum leaf 60 |
+| Shared trajectory encoder | Width 64, 1x1 stem, six kernel-2 causal blocks, dilations 1/2/4/8/16/32, dropout 0.1, batch normalization |
+| Contact branches | Ball-query attention and ELU layers 64/32 |
+| Neural inputs | 20 channels at 16 Hz, 64 samples, target index 47 |
+| Probability mixture | 0.5 geometry + 0.5 neural |
 
-Rates 16/25 and neural mixture weights 0.25/0.5/0.75 were selected on WR9.
-The composite tested directed weights 0/0.5/1 on WR9 before CV. Final rate 16,
-neural weight 0.5 and directed weight 1 then passed the declared clean/noisy
-CV and regression checks. Among fully qualifying methods, the composite
-had the highest WR9 spell F1. Failed individual methods, alternate physics
-and symmetry results are retained in MULTIAGENT_RESULTS.md. No released
-PathCRF weights overlapping evaluated matches were used.
+The neural branches predict dead probability and conditional home probability. Joint H/A/D probabilities are [(1-dead)*home, (1-dead)*(1-home), dead]. Home loss is zero on dead labels. A target-frame MLP and distance-biased attention add contact evidence. All observed actors are retained in padded groups and missing objects are masked. Goalkeeper-role channels stay zero.
 
-## Matched external results
+The original 17 input channels include position, motion, role flags and relative geometry. Three added channels encode raw ball visibility and time since/until an observation, capped at 10 seconds and scaled by 10. Velocities use actual elapsed source time. The 64-sample window includes 16 samples after the target, about one second. Gap-confidence features may use up to 10 seconds of future observation evidence. V5 therefore performs offline inference.
 
-Exact organizer spell F1 is primary, with mean halves weighted equally.
-Short recovery counts same-team possessions under 2 seconds at IoU 0.5.
-Clean/noisy scenarios share labels and are not independent samples.
+### Directed transition decoding
 
-| Comparison | Tracking | V4.1 spell F1 | V5 spell F1 | V4.1 short | V5 short |
-|---|---|---:|---:|---:|---:|
-| Whole-match CV | clean | 0.7105 | 0.7133 | 191/463 | 206/463 |
-| Whole-match CV | noise | 0.5329 | 0.5344 | 79/463 | 80/463 |
-| Reused regression | clean | 0.6808 | 0.6847 | 128/362 | 132/362 |
-| Reused regression | noise | 0.4968 | 0.5140 | 64/362 | 71/362 |
+A second boosting model predicts background and H-to-A, H-to-D, A-to-H, A-to-D, D-to-H and D-to-A transitions. It uses 293 features from the base geometry and signed context at +/-2, 6 and 12 frames. Its configuration is 100 iterations, 11 leaves, learning rate 0.08, L2 5, minimum leaf 80 and seed 20261116. Fitting samples every fifth valid frame, with positive weight 20. Targets extend two frames around the nearest external change, with earlier ties.
 
-These are small, repeated development gains, not statistical significance,
-a fresh blind test, a professional-system comparison or a competition score.
-Seven matches from one provider give limited independent evidence. Actual
-tracking identity switches, body orientation and aerial contacts remain
-limitations. Provider possession definitions may differ from Metrica.
+Viterbi maximizes summed log possession probabilities minus the directed switch cost 16/(1+8*b[t,previous,next]). Validation selected directed weight 1. The retained older destination detector contributes zero at that setting. Boundary scores reflect weighted training evidence and are uncalibrated.
 
-## Reproduce and verify
+### Fitting and selection
 
-Python 3.12, requirements-contact.txt. Canonical CPU inference uses 4 threads.
-The trusted artifact contains NumPy neural state plus trained tree models,
-with exact serialization checks and pinned model/source/evidence hashes.
-No external training dataset is needed to regenerate the submission.
+V5 starts from the corresponding role-free checkpoint, with added input weights initialized to zero. Fine-tuning uses two epochs of 100,000 fresh references, batch 256, Adam 1e-4 with cosine decay to 3e-5 and seed 20261116. References mix 75% eligible frames and 25% uniform team spells. Spell weights are clip(sqrt(250/duration_frames),0.5,4). Clean/noisy views and home/away swaps are included.
+
+Validation compared 16/25 Hz inputs, neural weights 0.25/0.5/0.75 and directed weights 0/0.5/1. The selected composite had the highest WR9 spellF1 among candidates passing the declared clean/noisy cross-validation and regression gates. Protocols, alternative designs and rejected trials are retained in the repository.
+
+## 3. External evidence and limitations
+
+### Dataset, labels and rights
+
+The deployed V5 model was fitted on IDSSE, published by Bassek, Rein, Weber and Memmert, with original data from DFL / Sportec Solutions, under CC BY 4.0. Published provider BallPossession and BallStatus supply the references. BallStatus 0 maps to D, live possession 1/2 maps to H/A and unknown maps to X. Label fields are isolated from model inputs. These references were supplied by the provider. [2-4]
+
+| Role | Whole matches |
+| --- | --- |
+| Fit, 4 matches | J03WOH, J03WOY, J03WPY, J03WQQ |
+| Validation, 1 match | J03WR9 |
+| Reused regression, 2 matches | J03WMX, J03WN1 |
+
+All seven matches have appeared in development. Cross-validation fits WOH/WOY and evaluates WPY/WQQ, then reverses. Both halves stay together. Every initializer, fine-tune, tree and transition detector excludes the evaluated whole matches from fitting.
+
+### Matched comparisons
+
+The exact organizer spellF1 is primary. Scores average halves equally. Short recovery counts same-team possessions shorter than two seconds matched at IoU 0.5.
+
+| Comparison | View | V4.1 spell | V5 spell | V4.1 short | V5 short |
+| --- | --- | --- | --- | --- | --- |
+| Whole-match CV | Clean | 0.7105 | 0.7133 | 191/463 | 206/463 |
+| Whole-match CV | Noisy | 0.5329 | 0.5344 | 79/463 | 80/463 |
+| Reused regression | Clean | 0.6808 | 0.6847 | 128/362 | 132/362 |
+| Reused regression | Noisy | 0.4968 | 0.5140 | 64/362 | 71/362 |
+
+The fixed corruption adds 0.25 m player jitter, 0.35 m ball jitter, 5% player dropout and ball gaps of 15-84 source frames. Clean/noisy runs share labels. The observed gains are small and come from repeated development comparisons on one provider. They provide limited independent evidence. Competition performance awaits the organizer's private evaluation.
+
+### What remains difficult
+
+Noisy short possessions remain a weakness, with 80/463 recovered in cross-validation. Simulated corruption covers only part of real tracking noise. Identity switches, body orientation, aerial contacts, whistles and provider-specific possession definitions limit transfer. Exact nearest-player ties retain the trained slot-order convention. Further work would need stronger independent evaluation of contact and turnover evidence.
+
+All fitting, selection and quality evaluation used external data. The supplied match was used for local inference. The active artifact's training data is IDSSE. Later research candidates and other datasets described in the research history were excluded from this deployed model.
+
+## 4. Reproduction, verification and references
+
+### Regenerate the prediction file
+
+Run from the repository root with Python 3.12. Install the pinned CPU dependencies, then use the organizer's local data bundle containing tactical/BAR-ATH_tactical_atd.xml and tactical/BAR-ATH_tactical_atd.txt.
 
 ```text
 python -m pip install -r requirements-contact.txt
@@ -135,14 +118,26 @@ python refined_infer.py --model models/external_v5.joblib --data-dir /local/bund
 python evaluation/validate_submission.py Barca4Ever.csv
 ```
 
-The bundle contains tactical/BAR-ATH_tactical_atd.xml and its TXT. The
-Windows wrapper verifies the artifact checksum and stores validator details
-locally. The file has 199,319 indexed rows. Its manifest records model/output
-hashes. 82 synthetic/unit tests, four saved-model external CPU comparisons
-and full-length synthetic CLI/format checks precede local inference.
-Format validation does not establish football quality. No fitting or
-adjustment happens during inference, and predictions are not checked against
-the supplied video or ground truth. No supplied data or extracts are sent
-to hosted AI services. Private inputs, intermediates, outputs and validator
-logs remain outside the public code package. V4.1 and older fallbacks are
-preserved. Details: V5_MODEL_GUIDE.md and MULTIAGENT_RESULTS.md.
+The public repository includes the trained model, NumPy neural state, classifiers, pinned dependencies and execution instructions. The model guide contains the full training reproduction procedure. The Windows launcher verifies the artifact checksum and stores validation details locally.
+
+### Release verification
+
+The November 11 release passed 85 synthetic tests. A generated 199,319-frame match passed the corrected launcher, actual V5 CPU inference and the organizer's format validator. Cases included short and long ball gaps, a missing team and a long complete player outage. Timing, actor grouping, missing padding and directed decoding were checked. The earlier saved-model evidence includes four external CPU parity comparisons and historical 82-test reports.
+
+The output manifest records model and CSV hashes. The qualified model SHA-256 is recorded with the artifact metadata. The frozen submission CSV was reproduced exactly from the published inference sources and pinned CPU dependencies. Format and synthetic checks establish software behavior and file validity. Football quality is supported only by the external comparisons above.
+
+### Data handling
+
+Challenge inputs, predictions, intermediates and validator logs are kept locally and excluded from the public package. Inference performs no fitting or calibration. Predictions were not checked against the supplied video or ground truth. The organizers prohibit uploading their data or extracts to hosted AI services. External data attribution must accompany trained artifacts.
+
+### References and review links
+
+[1] Borghesi et al. (2023), Expert Systems with Applications, article 119780. DOI 10.1016/j.eswa.2023.119780.
+
+[2] Bassek, Rein, Weber and Memmert (2025), An integrated dataset of spatiotemporal and event data in elite soccer, Scientific Data 12, 195. DOI 10.1038/s41597-025-04505-y.
+
+[3] IDSSE deposit, DFL / Sportec Solutions. DOI 10.6084/m9.figshare.28196177.
+
+[4] Creative Commons Attribution 4.0. https://creativecommons.org/licenses/by/4.0/
+
+Public code and detailed evidence https://github.com/aqaPayam/Barca4Ever

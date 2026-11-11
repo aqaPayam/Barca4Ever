@@ -12,7 +12,7 @@ An offline model that turns automatic player and ball tracking into a team posse
 | --- | --- | --- |
 | Player and ball XY positions, team assignments | V5 contact network, geometry classifier and directed transition decoder | A `frame,label` CSV with 199,319 rows |
 
-[Technical report](Barca4Ever.md) · [V5 model guide](V5_MODEL_GUIDE.md) · [Development results](MULTIAGENT_RESULTS.md) · [Data provenance](EXTERNAL_DATA.md)
+[Technical report PDF](submission/Barca4Ever.pdf) · [Reviewer guide](REVIEWER_GUIDE.md) · [Report source](Barca4Ever.md) · [V5 model guide](V5_MODEL_GUIDE.md)
 
 ## Reproduce the submission
 
@@ -90,7 +90,7 @@ All seven matches have appeared in development. These repeated comparisons suppo
 
 ## Verification
 
-The November 11 release passed **85 synthetic tests** and a **199,319-frame synthetic CPU run** through the Windows launcher, V5 inference and the official format validator. Checks cover time alignment, actor grouping, missing observations, directed decoding and launcher paths. These checks establish software behavior and file validity.
+The November 11 release passed **85 synthetic tests** and a **199,319-frame synthetic CPU run** through the Windows launcher, V5 inference and the official format validator. Checks cover time alignment, actor grouping, missing observations, directed decoding and launcher paths. These checks establish software behavior and file validity. [Software verification evidence](external_reports/v5_software_verification_2026_11_11.json)
 
 Run the synthetic unit suite after installing the pinned dependencies.
 
@@ -123,7 +123,9 @@ For training reproduction, follow the V5 model guide in a fresh experiment direc
 
 | File | Purpose |
 | --- | --- |
-| [Barca4Ever.md](Barca4Ever.md) | V5 technical report for submission |
+| [submission/Barca4Ever.pdf](submission/Barca4Ever.pdf) | Four-page V5 technical report for submission |
+| [Barca4Ever.md](Barca4Ever.md) | Editable report source |
+| [REVIEWER_GUIDE.md](REVIEWER_GUIDE.md) | Review questions mapped to code and evidence |
 | [refined_infer.py](refined_infer.py) | Active V5 inference entry point |
 | [Run-Barca4Ever.ps1](Run-Barca4Ever.ps1) | Windows launcher and format check |
 | [models/external_v5.joblib](models/external_v5.joblib) | Trained submission artifact |
